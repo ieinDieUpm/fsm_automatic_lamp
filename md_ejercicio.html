@@ -106,15 +106,16 @@ Preguntas</h1>
 </li>
 </ul>
 <blockquote class="doxtable">
-<p>[!TIP] Use la macro <code>ADC_VREF_MV</code>, la función <code><a class="el" href="port__ldr__sensor_8c.html#a192286408ad94029f27fbd7cff4d7d26" title="Converts an ADC value to millivolts.">_adc_to_mvolts()</a></code> con una resolución de 12 bits y la resistencia de <code>R_PULLDOWN_OHMS</code> para hacer la conversión. Debe despejar la ecuación de la impedancia del sensor LDR del circuito divisor de tensión. </p>
+<p>[!TIP] Use la macro <code>ADC_VREF_MV</code>, la función <code><a class="el" href="port__ldr__sensor_8c.html#a192286408ad94029f27fbd7cff4d7d26" title="Converts an ADC value to millivolts.">_adc_to_mvolts()</a></code> con una resolución de 12 bits y la resistencia de <code>R_PULLDOWN_OHMS</code> para hacer la conversión. <b>Debe despejar la ecuación de la impedancia del sensor LDR del circuito divisor de tensión.</b> </p>
 </blockquote>
 <ul>
+<li>En <code><a class="el" href="fsm__automatic__lamp_8c.html" title="Finite State Machine for an automatic lamp.">fsm_automatic_lamp.c</a></code> complete la función <code><a class="el" href="fsm__automatic__lamp_8c.html#a7867a8f9e967d5da8d38c324d28158a6" title="Check if the value of impedance of the LDR is low enough to activate the automatic lamp.">check_on()</a></code>. Debe devolver <code>true</code> para que se encienda la luz de la farola (<code>led_lamp</code>), y <code>false</code> en caso contrario. Identifique si el umbral se cruza en el sentido de que el valor de impedancia del sensor LDR es mayor o menor que el umbral. Use el umbral definido en la FSM <code>p_fsm-&gt;threshold_ldr_ohms</code>, y el valor de impedancia devuelto por la función <code><a class="el" href="port__ldr__sensor_8h.html#aa14a7629407f4921965d346196f7beea" title="Gets the LDR in Ohms of the LDR sensor.">port_ldr_sensor_get_resistance()</a></code>.</li>
 <li>En <code><a class="el" href="interr_8c.html" title="Interrupt service routines for the STM32F4 platform.">interr.c</a></code> añada la ISR del temporizador <code>x</code> seleccionado (<code>TIMx_IRQHandler</code>) para que cuando se active:<ul>
 <li>Llame a la función <code><a class="el" href="port__system_8h.html#a930f7527b31962044dc8cf0244c68431" title="Start the conversion of the ADC peripheral.">port_system_adc_start_conversion()</a></code> para iniciar una conversión del sensor LDR con los parámetros adecuados.</li>
 <li>Limpie el bit de interrupción <code>UIF</code> del registro <code>SR</code> del temporizador.</li>
 </ul>
 </li>
-<li>En <code><a class="el" href="interr_8c.html" title="Interrupt service routines for the STM32F4 platform.">interr.c</a></code>, complete la ISR del ADC para que cuando se complete la conversión:<ul>
+<li>En <code><a class="el" href="interr_8c.html" title="Interrupt service routines for the STM32F4 platform.">interr.c</a></code>, complete la ISR del ADC para que cuando finalice la conversión:<ul>
 <li>Llame a la función <code><a class="el" href="port__ldr__sensor_8h.html#afcfb1bd745fa453a240e131674de1054" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para guarde el valor de impedancia del sensor LDR. Hay uqe pasarle la dirección de memoria de la estructura <code>ldr_sensor_lamp</code> y el valor de la conversión que está en el registro <code>DR</code> del ADC. Use el campo <code>p_adc</code> de la estructura <code>ldr_sensor_lamp</code> leer dicho valor y no el nombre del ADC directamente, para que sea un código más genérico.</li>
 </ul>
 </li>
@@ -125,9 +126,10 @@ Preguntas</h1>
 <li><p class="startli"><b>Situación 1:</b></p>
 <p class="startli">Compruebe que la iluminación (<code>led_lamp</code>) se enciende cuando la luz es baja. Para ello, tape el sensor LDR con un objeto opaco. En este caso, el LED des estado (<code>led_status</code>) se deberá apagar. Tenga cuidado de no tocar directamente el sensor LDR con los dedos, ya que la grasa de la piel puede afectar a la lectura del sensor.</p>
 </li>
-<li><b>Situación 2:</b></li>
+<li><p class="startli"><b>Situación 2:</b></p>
+<p class="startli">Compruebe que la iluminación (<code>led_lamp</code>) se apaga cuando la luz es alta. Para ello, destape el sensor LDR. En este caso, el LED des estado (<code>led_status</code>) se deberá encender. Si no fuese suficiente con la luz natural, puede usar la linterna del móvil para iluminar directamente el sensor LDR. </p>
+</li>
 </ul>
-<p>Compruebe que la iluminación (<code>led_lamp</code>) se apaga cuando la luz es alta. Para ello, destape el sensor LDR. En este caso, el LED des estado (<code>led_status</code>) se deberá encender. Si no fuese suficiente con la luz natural, puede usar la linterna del móvil para iluminar directamente el sensor LDR. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
