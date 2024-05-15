@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FSM thermostat: Globals</title>
+<title>FSM automatic lamp: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">FSM thermostat
+   <div id="projectname">FSM automatic lamp
    </div>
   </td>
  </tr>
@@ -103,6 +103,18 @@ $(document).ready(function(){initNavTree('globals_defs.html',''); initResizable(
 <li>ADC_VREF_MV
 : <a class="el" href="port__system_8h.html#a1c77a4467697f72f3d6ed3b5effd7182">port_system.h</a>
 </li>
+<li>AUTOMATIC_LAMP_DEFAULT_THRESHOLD
+: <a class="el" href="fsm__automatic__lamp_8h.html#a53b1944ad4a17818228b78973a8e6aa0">fsm_automatic_lamp.h</a>
+</li>
+<li>AUTOMATIC_LAMP_HISTORY
+: <a class="el" href="fsm__automatic__lamp_8h.html#a1671f26b6cd31b7d6e66b283ea7d17d0">fsm_automatic_lamp.h</a>
+</li>
+<li>AUTOMATIC_LAMP_MEASUREMENT_TIMER
+: <a class="el" href="port__automatic__lamp_8h.html#a7e7ae4ae621a76f40df9be7859a6b150">port_automatic_lamp.h</a>
+</li>
+<li>AUTOMATIC_LAMP_SAMPLING_PERIOD_SEC
+: <a class="el" href="fsm__automatic__lamp_8h.html#aceaece6fc5bb30715d2b6cf198f939b3">fsm_automatic_lamp.h</a>
+</li>
 </ul>
 
 
@@ -155,23 +167,29 @@ $(document).ready(function(){initNavTree('globals_defs.html',''); initResizable(
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
-<li>LED_COMFORT_GPIO
-: <a class="el" href="port__led_8h.html#abbcbe0a3f8283f580690f044d830fff3">port_led.h</a>
+<li>LDR_SENSOR_LAMP_ADC
+: <a class="el" href="port__ldr__sensor_8h.html#a290248f04359634c834a060e78b5a032">port_ldr_sensor.h</a>
 </li>
-<li>LED_COMFORT_PIN
-: <a class="el" href="port__led_8h.html#ab3cd68ccfcaed6c8a1a7d3316937cb4c">port_led.h</a>
+<li>LDR_SENSOR_LAMP_ADC_CHANNEL
+: <a class="el" href="port__ldr__sensor_8h.html#ae91488c6064fc5862c4d9959e268f502">port_ldr_sensor.h</a>
 </li>
-<li>LED_HEAT_GPIO
-: <a class="el" href="port__led_8h.html#a870af46a9304b12a4917e7145cf92169">port_led.h</a>
+<li>LDR_SENSOR_LAMP_GPIO
+: <a class="el" href="port__ldr__sensor_8h.html#ab9ea14ebfa16de8b9a015a30d24e5f23">port_ldr_sensor.h</a>
 </li>
-<li>LED_HEAT_PIN
-: <a class="el" href="port__led_8h.html#a1af4773c2888df4d220313abab01e869">port_led.h</a>
+<li>LDR_SENSOR_LAMP_PIN
+: <a class="el" href="port__ldr__sensor_8h.html#a35c80351b5589fe0ce7b6a70a3ce45ce">port_ldr_sensor.h</a>
 </li>
-<li>LED_ON_GPIO
-: <a class="el" href="port__led_8h.html#a0f14f34aa079d63c7606ef6c06166c9b">port_led.h</a>
+<li>LED_LAMP_GPIO
+: <a class="el" href="port__led_8h.html#a4ed7b3c5ae172a271eb85d80e0337b2e">port_led.h</a>
 </li>
-<li>LED_ON_PIN
-: <a class="el" href="port__led_8h.html#ae51b0ba1b4288f6d194016773e22bf48">port_led.h</a>
+<li>LED_LAMP_PIN
+: <a class="el" href="port__led_8h.html#adb16b487fed40ff121d698563a249d40">port_led.h</a>
+</li>
+<li>LED_STATUS_GPIO
+: <a class="el" href="port__led_8h.html#ae8140c4e2ee1fc1bf214a08473fefc0b">port_led.h</a>
+</li>
+<li>LED_STATUS_PIN
+: <a class="el" href="port__led_8h.html#aa42b43d66e323049489072884d0a2ee6">port_led.h</a>
 </li>
 <li>LOW
 : <a class="el" href="port__system_8h.html#ab811d8c6ff3a505312d3276590444289">port_system.h</a>
@@ -197,6 +215,9 @@ $(document).ready(function(){initNavTree('globals_defs.html',''); initResizable(
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
+<li>R_PULLDOWN_OHMS
+: <a class="el" href="port__ldr__sensor_8h.html#a1948ed746fde82faefd31ad68c99136c">port_ldr_sensor.h</a>
+</li>
 <li>RCC_HSI_CALIBRATION_DEFAULT
 : <a class="el" href="port__system_8h.html#a2493eaca64054f112ecca77da42783bc">port_system.h</a>
 </li>
@@ -204,30 +225,6 @@ $(document).ready(function(){initNavTree('globals_defs.html',''); initResizable(
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
-<li>TEMP_SENSOR_THERMOSTAT_ADC
-: <a class="el" href="port__temp__sensor_8h.html#a012e10a6aedccaf4561cb19f6cde5e16">port_temp_sensor.h</a>
-</li>
-<li>TEMP_SENSOR_THERMOSTAT_ADC_CHANNEL
-: <a class="el" href="port__temp__sensor_8h.html#ad6e0d170365a362328b1299194734fcc">port_temp_sensor.h</a>
-</li>
-<li>TEMP_SENSOR_THERMOSTAT_GPIO
-: <a class="el" href="port__temp__sensor_8h.html#a1a33dbb5478b3bc0542bbfec1cac974b">port_temp_sensor.h</a>
-</li>
-<li>TEMP_SENSOR_THERMOSTAT_PIN
-: <a class="el" href="port__temp__sensor_8h.html#a0d813641e80f0f488031723030d98de1">port_temp_sensor.h</a>
-</li>
-<li>THERMOSTAT_DEFAULT_THRESHOLD
-: <a class="el" href="fsm__thermostat_8h.html#a0a4416295f659d1ba3994ed1d19d3051">fsm_thermostat.h</a>
-</li>
-<li>THERMOSTAT_HISTORY
-: <a class="el" href="fsm__thermostat_8h.html#a7eb1d9b1eadce9d682a6cf14336a63af">fsm_thermostat.h</a>
-</li>
-<li>THERMOSTAT_MEASUREMENT_TIMER
-: <a class="el" href="port__thermostat_8h.html#a7ba4075eb8eccc982613b65b5f80ee87">port_thermostat.h</a>
-</li>
-<li>THERMOSTAT_TIMEOUT_SEC
-: <a class="el" href="fsm__thermostat_8h.html#aefe4b2d78442f87884aa6b5d34b8d35a">fsm_thermostat.h</a>
-</li>
 <li>TICK_FREQ_1KHZ
 : <a class="el" href="port__system_8h.html#aafb4caba8017f1b553bd78f60ecd11c4">port_system.h</a>
 </li>

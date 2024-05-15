@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['last_5fevents_188',['last_events',['../structfsm__thermostat__t.html#a8fac0cc5a6b63791b46d6853fe821ed3',1,'fsm_thermostat_t']]],
-  ['last_5ftime_5fevents_189',['last_time_events',['../structfsm__thermostat__t.html#ac88126f3be8eaab21c71bf607faf113c',1,'fsm_thermostat_t']]],
-  ['led_5fcomfort_5ftemperature_190',['led_comfort_temperature',['../port__led_8h.html#a4e945b09b4619f377c34d9e7a42530fb',1,'led_comfort_temperature():&#160;port_led.c'],['../port__led_8c.html#a4e945b09b4619f377c34d9e7a42530fb',1,'led_comfort_temperature():&#160;port_led.c']]],
-  ['led_5fheater_5factive_191',['led_heater_active',['../port__led_8h.html#a49435368839f7e7d40afa74348c02be9',1,'led_heater_active():&#160;port_led.c'],['../port__led_8c.html#a49435368839f7e7d40afa74348c02be9',1,'led_heater_active():&#160;port_led.c']]],
-  ['led_5fon_192',['led_on',['../port__led_8h.html#a4d38971fa63b133591ce7561b87291d8',1,'led_on():&#160;port_led.c'],['../port__led_8c.html#a4d38971fa63b133591ce7561b87291d8',1,'led_on():&#160;port_led.c']]]
+  ['last_5fevents_185',['last_events',['../structfsm__automatic__lamp__t.html#a83789c8ba0c2fe38a6064d900f4c47f1',1,'fsm_automatic_lamp_t']]],
+  ['last_5ftime_5fevents_186',['last_time_events',['../structfsm__automatic__lamp__t.html#aa0ad7c9fd0e0aa4a86060bfeccb25eee',1,'fsm_automatic_lamp_t']]],
+  ['ldr_5fsensor_5flamp_187',['ldr_sensor_lamp',['../port__ldr__sensor_8h.html#a97eae8f70389ab9cf67f98ccb7dff757',1,'ldr_sensor_lamp():&#160;port_ldr_sensor.c'],['../port__ldr__sensor_8c.html#a97eae8f70389ab9cf67f98ccb7dff757',1,'ldr_sensor_lamp():&#160;port_ldr_sensor.c']]],
+  ['led_5flamp_188',['led_lamp',['../port__led_8h.html#ae2b7f7df216a8d6a74e7f1be7e42f8c3',1,'led_lamp():&#160;port_led.c'],['../port__led_8c.html#ae2b7f7df216a8d6a74e7f1be7e42f8c3',1,'led_lamp():&#160;port_led.c']]],
+  ['led_5fstatus_189',['led_status',['../port__led_8h.html#a1a98127c78dde428e7a276fb930942a9',1,'led_status():&#160;port_led.c'],['../port__led_8c.html#a1a98127c78dde428e7a276fb930942a9',1,'led_status():&#160;port_led.c']]]
 ];

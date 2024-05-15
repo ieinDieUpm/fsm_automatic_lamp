@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['systemcoreclock_200',['SystemCoreClock',['../port__system_8c.html#aa3cd3e43291e81e795d642b79b6088e6',1,'port_system.c']]]
+  ['resistance_5fohms_197',['resistance_ohms',['../structport__ldr__hw__t.html#a900d20658aafce451011986c1b0d8384',1,'port_ldr_hw_t']]]
 ];

@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['f_20',['f',['../structfsm__thermostat__t.html#a2252397dde59e42b8574ca7a11570680',1,'fsm_thermostat_t']]],
-  ['fsm_5fthermostat_2ec_21',['fsm_thermostat.c',['../fsm__thermostat_8c.html',1,'']]],
-  ['fsm_5fthermostat_2eh_22',['fsm_thermostat.h',['../fsm__thermostat_8h.html',1,'']]],
-  ['fsm_5fthermostat_5fget_5flast_5ftime_5fevent_23',['fsm_thermostat_get_last_time_event',['../fsm__thermostat_8h.html#a284cd5eb6ac0431d6682b0ed11e1297f',1,'fsm_thermostat_get_last_time_event(fsm_t *p_this, uint8_t event):&#160;fsm_thermostat.c'],['../fsm__thermostat_8c.html#a284cd5eb6ac0431d6682b0ed11e1297f',1,'fsm_thermostat_get_last_time_event(fsm_t *p_this, uint8_t event):&#160;fsm_thermostat.c']]],
-  ['fsm_5fthermostat_5fget_5fstatus_24',['fsm_thermostat_get_status',['../fsm__thermostat_8h.html#af4b0dcfd6facf1115588ef8fcb39ad62',1,'fsm_thermostat_get_status(fsm_t *p_this):&#160;fsm_thermostat.c'],['../fsm__thermostat_8c.html#af4b0dcfd6facf1115588ef8fcb39ad62',1,'fsm_thermostat_get_status(fsm_t *p_this):&#160;fsm_thermostat.c']]],
-  ['fsm_5fthermostat_5finit_25',['fsm_thermostat_init',['../fsm__thermostat_8c.html#a70a70d2de2f782aa646d03f7e0cef1d2',1,'fsm_thermostat.c']]],
-  ['fsm_5fthermostat_5fnew_26',['fsm_thermostat_new',['../fsm__thermostat_8h.html#a499cfd30bdafeeb5d147466d20212ab7',1,'fsm_thermostat_new(port_led_hw_t *p_led_heat, port_led_hw_t *p_led_comfort, port_temp_hw_t *p_temp):&#160;fsm_thermostat.c'],['../fsm__thermostat_8c.html#a499cfd30bdafeeb5d147466d20212ab7',1,'fsm_thermostat_new(port_led_hw_t *p_led_heat, port_led_hw_t *p_led_comfort, port_temp_hw_t *p_temp):&#160;fsm_thermostat.c']]],
-  ['fsm_5fthermostat_5fstates_27',['FSM_THERMOSTAT_STATES',['../fsm__thermostat_8h.html#aaa1d371426f1cb9022507feb53087053',1,'fsm_thermostat.h']]],
-  ['fsm_5fthermostat_5ft_28',['fsm_thermostat_t',['../structfsm__thermostat__t.html',1,'']]],
-  ['fsm_5ftrans_5fthermostat_29',['fsm_trans_thermostat',['../fsm__thermostat_8c.html#a4fff0564e9b2daf06b612a15275ef1ad',1,'fsm_thermostat.c']]]
+  ['f_25',['f',['../structfsm__automatic__lamp__t.html#a8287594f3f7be37becc6005d18a213fd',1,'fsm_automatic_lamp_t']]],
+  ['fsm_5fautomatic_5flamp_2ec_26',['fsm_automatic_lamp.c',['../fsm__automatic__lamp_8c.html',1,'']]],
+  ['fsm_5fautomatic_5flamp_2eh_27',['fsm_automatic_lamp.h',['../fsm__automatic__lamp_8h.html',1,'']]],
+  ['fsm_5fautomatic_5flamp_5finit_28',['fsm_automatic_lamp_init',['../fsm__automatic__lamp_8c.html#ab8f3d51a3334fe0a06fad2a67deca911',1,'fsm_automatic_lamp.c']]],
+  ['fsm_5fautomatic_5flamp_5fstates_29',['FSM_AUTOMATIC_LAMP_STATES',['../fsm__automatic__lamp_8h.html#af6f62eb4069a4d7b7ab964e112a73446',1,'fsm_automatic_lamp.h']]],
+  ['fsm_5fautomatic_5flamp_5ft_30',['fsm_automatic_lamp_t',['../structfsm__automatic__lamp__t.html',1,'']]],
+  ['fsm_5flamp_5fget_5flast_5ftime_5fevent_31',['fsm_lamp_get_last_time_event',['../fsm__automatic__lamp_8h.html#aeb7f265c625e4aec7716627c7f0b8072',1,'fsm_lamp_get_last_time_event(fsm_t *p_this, uint8_t event):&#160;fsm_automatic_lamp.c'],['../fsm__automatic__lamp_8c.html#aeb7f265c625e4aec7716627c7f0b8072',1,'fsm_lamp_get_last_time_event(fsm_t *p_this, uint8_t event):&#160;fsm_automatic_lamp.c']]],
+  ['fsm_5flamp_5fget_5fstatus_32',['fsm_lamp_get_status',['../fsm__automatic__lamp_8h.html#abf8885150cd2949b4c43a785b71b3f09',1,'fsm_lamp_get_status(fsm_t *p_this):&#160;fsm_automatic_lamp.c'],['../fsm__automatic__lamp_8c.html#abf8885150cd2949b4c43a785b71b3f09',1,'fsm_lamp_get_status(fsm_t *p_this):&#160;fsm_automatic_lamp.c']]],
+  ['fsm_5flamp_5fnew_33',['fsm_lamp_new',['../fsm__automatic__lamp_8h.html#a021035b36a17c3da00abc7bf1b02c81d',1,'fsm_lamp_new(port_led_hw_t *p_led_lamp, port_led_hw_t *p_led_status, port_ldr_hw_t *p_ldr):&#160;fsm_automatic_lamp.c'],['../fsm__automatic__lamp_8c.html#a021035b36a17c3da00abc7bf1b02c81d',1,'fsm_lamp_new(port_led_hw_t *p_led_lamp, port_led_hw_t *p_led_status, port_ldr_hw_t *p_ldr):&#160;fsm_automatic_lamp.c']]],
+  ['fsm_5ftrans_5fautomatic_5flamp_34',['fsm_trans_automatic_lamp',['../fsm__automatic__lamp_8c.html#a2a0325418d4ec6441eaa69609dec3308',1,'fsm_automatic_lamp.c']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FSM thermostat: Thermostat with FSM and ADC</title>
+<title>FSM automatic lamp: Sistema de iluminación automática</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">FSM thermostat
+   <div id="projectname">FSM automatic lamp
    </div>
   </td>
  </tr>
@@ -83,31 +83,29 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Thermostat with FSM and ADC </div>  </div>
+<div class="title">Sistema de iluminación automática </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This project implements a thermostat with an analog LM35 temperature sensor, and 2 LEDs.</p>
-<p>You can access the source code of the project in the following link: <a href="https://github.com/ieinDieUpm/fsm_thermostat">Thermostat with FSM and ADC</a>.</p>
-<p>The HW configuration is shown in the following picture:</p>
+<div class="textblock"><p>Este proyecto implementa un sistema de iluminación automática con un sensor LDR y 2 LEDs. El sistema utiliza una FSM para gestionar los diferentes estados del sistema y el hardware. La configuración HW se muestra en la siguiente imagen:</p>
 <div class="image">
-<img src="fsm_thermostat_bb.png" alt=""/>
+<img src="fsm_automatic_lamp_bb.png" alt=""/>
 <div class="caption">
-HW Thersmostat</div></div>
-   <p>The system uses an FSM to manage the different states of the system and hardware. This picture shows the FSM of the system:</p>
+HW iluminación automática</div></div>
+   <p>El sistema usa una FSM para gestionar los diferentes estados del sistema y el hardware. Esta imagen muestra la FSM del sistema:</p>
 <div class="image">
-<img src="fsm_thermostat.png" alt=""/>
+<img src="fsm_automatic_lamp.png" alt=""/>
 <div class="caption">
-FSM Thersmostat</div></div>
-   <p>The thermostat makes a measurement every time its timer is triggered. The measurement is done by the ADC peripheral. The ADC is configured to sample the temperature sensor in single mode. The timer is configured in the <code>PORT</code> file of the system.</p>
+FSM iluminación automática</div></div>
+   <p>El sistema toma una medida cada vez que se activa su temporizador. La medida se realiza mediante el periférico ADC. El ADC está configurado para muestrear el sensor LDR en modo único. El temporizador está configurado en el archivo <code>PORT</code> del sistema.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Define label </td><td class="markdownTableBodyNone">THERMOSTAT_MEASUREMENT_TIMER  </td></tr>
+<td class="markdownTableBodyNone">Define label </td><td class="markdownTableBodyNone">AUTOMATIC_LAMP_MEASUREMENT_TIMER  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Timer </td><td class="markdownTableBodyNone">TIM2  </td></tr>
+<td class="markdownTableBodyNone">Timer </td><td class="markdownTableBodyNone">TIM3  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Interrupt </td><td class="markdownTableBodyNone"><a class="el" href="interr_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2" title="Interrupt service routine for the TIM2 timer.">TIM2_IRQHandler()</a>  </td></tr>
+<td class="markdownTableBodyNone">Interrupt </td><td class="markdownTableBodyNone">TIM3_IRQHandler()  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Time interval </td><td class="markdownTableBodyNone">1 second  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -115,21 +113,29 @@ FSM Thersmostat</div></div>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Subpriority </td><td class="markdownTableBodyNone">0  </td></tr>
 </table>
-<p>You can generate as many thermostat as you want by creating a new FSM and assigning the corresponding peripherals to the system. The system which is implemented in the <code><a class="el" href="main_8c.html" title="Basic FSM reading analog data from a linear thermistor LM35.">main.c</a></code> file. The system uses the following peripherals:</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Temperature sensor</h1>
-<p>The temperature sensor used in the system is the LM35 (see <a href="https://www.ti.com/product/es-mx/LM35">LM35 datasheet</a>). The sensor is located in the shield provided by the university. The sensor is connected to the pin <code>PA0</code>. The sensor is configured as an analog input with no push-pull resistor. The sensor is sampled in single mode with a sampling period given by the interruptions of a timer. All the configurations of the ADC are by default. The ADC is configured to interrupt when the conversion is completed. The ADC is configured with the following settings:</p>
+<p>Puede generar tantos sistemas de iluminación como desee creando una nueva FSM y asignando los periféricos correspondientes al sistema. El sistema está implementado en el archivo <code><a class="el" href="main_8c.html" title="Basic FSM reading analog data from an LDR sensor and controlling a LED.">main.c</a></code>.</p>
+<p>Puede acceder al código fuente del proyecto en el siguiente enlace: <a href="https://github.com/ieinDieUpm/fsm_automatic_lamp">Sistema de iluminación automática con FSM y ADC</a>.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Implementación HW</h1>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Sensor LDR</h1>
+<p>El sensor LDR utilizado en el sistema es el NSL-19M51 (ver <a href="https://docs.rs-online.com/7251/0900766b8156674e.pdf">hoja de datos del NSL-19M51</a>). El sensor está ubicado en la <em>shield</em> proporcionado por la universidad. El sensor está conectado con una resistencia de <em>pull-down</em> en el circuito como se muestra en la siguiente imagen:</p>
+<div class="image">
+<img src="ldr_shield.png" alt=""/>
+<div class="caption">
+Circuito LDR</div></div>
+   <p>El sensor se muestrea en modo único con un período de muestreo dado por las interrupciones de un temporizador. Todas las configuraciones del ADC son por defecto. El ADC está configurado para interrumpir cuando la conversión se completa. El ADC está configurado como indica la siguiente tabla:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">temp_sensor_thermostat  </td></tr>
+<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">ldr_sensor_lamp  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PA0 (A0 on Nucleo)  </td></tr>
+<td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone"><b>Por determinar</b> (A1 Nucleo)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">ADC </td><td class="markdownTableBodyNone">ADC1  </td></tr>
+<td class="markdownTableBodyNone">ADC </td><td class="markdownTableBodyNone"><b>Por determinar</b>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Channel </td><td class="markdownTableBodyNone">0  </td></tr>
+<td class="markdownTableBodyNone">Channel </td><td class="markdownTableBodyNone"><b>Por determinar</b>  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Mode </td><td class="markdownTableBodyNone">Analog  </td></tr>
 <tr class="markdownTableRowEven">
@@ -141,16 +147,16 @@ Temperature sensor</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Subpriority </td><td class="markdownTableBodyNone">0  </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 LEDs</h1>
-<p>There are two LEDs in the system. The first LED is the <code>led_heater_active</code> (red) and the second LED is the <code>led_comfort_temperature</code> (blue). The <code>led_heater_active</code> is used to indicate that the temperature is below the threshold and the heater activates to warm the thermal system. The <code>led_comfort_temperature</code> is used to indicate that the temperature is above the threshold and the thermal system is off. The LEDs are within an RGB LED soldered in the shield provided by the university. The LEDs are connected to the pins <code>PB4</code> and <code>PB5</code>. The LEDs are configured as outputs with no push-pull resistor. The LEDs are turned on when the system starts. The LEDs are configured with the following settings:</p>
+<p>Hay 2 LEDs para indicar el estado del sistema. Un <b>LED verde</b> (<code>led_status</code>) se utiliza para indicar que el sistema está funcionando cuando la luz no está encendida. Un <b>LED rojo</b> (<code>led_lamp</code>) que hace las veces de la luz del sistema.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">led_comfort_temperature  </td></tr>
+<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">led_status  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PB5 (D4 on Nucleo)  </td></tr>
+<td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PA5 (LD2 on Nucleo board)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Mode </td><td class="markdownTableBodyNone">Output  </td></tr>
 <tr class="markdownTableRowEven">
@@ -160,37 +166,34 @@ LEDs</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">led_heater_active  </td></tr>
+<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">led_lamp  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PB4 (D5 on Nucleo)  </td></tr>
+<td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PB4 (D5 on Nucleo and shield)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Mode </td><td class="markdownTableBodyNone">Output  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Pull up/ down </td><td class="markdownTableBodyNone">No push no pull  </td></tr>
 </table>
-<p>There is also a third LED, the <code>led_on</code> (green), which is used to indicate that the system has started. This LED is not part of the system. The <code>led_on</code> is turned on when the system starts and is turned off after 500 ms. This LED can be disabled by commenting the line <code>#define USE_LED_ON</code> in the <code><a class="el" href="main_8c.html" title="Basic FSM reading analog data from a linear thermistor LM35.">main.c</a></code> file. The <code>led_on</code> is connected to the pin <code>PB3</code>.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">led_on  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PB3 (D3 on Nucleo)  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Mode </td><td class="markdownTableBodyNone">Output  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Pull up/ down </td><td class="markdownTableBodyNone">No push no pull  </td></tr>
-</table>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Funcionamiento detallado del sistema</h1>
+<p>El sistema está codificado según el diagrama de estados mostrado anteriormente. El sistema se comporta de la siguiente manera:</p>
+<ul>
+<li>El sistema se inicia en el estado <code>LAMP_OFF</code>. En este estado, el LED <code>led_status</code> está encendido y <code>led_lamp</code> está apagado.</li>
+<li>Cada vez que salta la ISR del temporizador, el sistema llama a <code><a class="el" href="port__system_8h.html#a930f7527b31962044dc8cf0244c68431" title="Start the conversion of the ADC peripheral.">port_system_adc_start_conversion()</a></code> para iniciar una conversión del sensor LDR. La ISR del ADC se activa cuando la conversión se completa (bit <code>EOC</code>). En la ISR del ADC, el sistema llama a <code><a class="el" href="port__ldr__sensor_8h.html#afcfb1bd745fa453a240e131674de1054" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para gestionar el valor del sensor LDR. Esta función guarda el valor de impedancia del sensor LDR en la variable <code>resistance_ohms</code> del <code>ldr_sensor_lamp</code>.</li>
+<li>El sistema comprueba (<code><a class="el" href="fsm__automatic__lamp_8c.html#a7867a8f9e967d5da8d38c324d28158a6" title="Check if the value of impedance of the LDR is low enough to activate the automatic lamp.">check_on()</a></code>) si el valor de impedancia del sensor cruza el umbral establecido en el campo <code>threshold_ldr_ohms</code> de <code>ldr_sensor_lamp</code>. En el <a class="el" href="md_ejercicio.html">ejercicio</a> deberá identificar si el umbral se cruza en el sentido de que el valor de impedancia del sensor LDR es mayor o menor que el umbral.</li>
+<li>Si se cruza el umbral, el sistema cambia al estado <code>LAMP_ON</code>. En este estado, el LED <code>led_lamp</code> se enciende y el LED <code>led_status</code> se apaga.</li>
+<li>De manera análoga, en el estado <code>LAMP_ON</code>, el sistema comprueba (<code><a class="el" href="fsm__automatic__lamp_8c.html#a44c28497a4aab5947a265a7a75314135" title="Check if the value of impedance of the LDR is high enough to deactivate the automatic lamp.">check_off()</a></code>) si el valor de impedancia del sensor LDR cruza el umbral establecido en el campo <code>threshold_ldr_ohms</code> de <code>ldr_sensor_lamp</code>. Si se cruza el umbral, vuelve al estado <code>LAMP_OFF</code>, el LED <code>led_status</code> se enciende y el LED <code>led_lamp</code> se apaga.</li>
+</ul>
 <blockquote class="doxtable">
-<p>[!WARNING] <b>If you want to use the <code>printf()</code> function using the SWO, you must change the pin of the <code>led_on</code> to another pin. The SWO pin is the <code>PB3</code> pin. If you use the <code>led_on</code>, the SWO pin will not work.</b> If you want to use the SWO, you must comment the line <code>#define USE_LED_ON</code> in the <code><a class="el" href="main_8c.html" title="Basic FSM reading analog data from a linear thermistor LM35.">main.c</a></code> file. <b>In this case, **if you are using the shield provided by the university, the pin <code>PB3</code> will be active turning on the <code>led_on</code> constantly and you won't see pure red or blue LEDs but a mix of colors instead.</b> </p>
+<p>[!WARNING] Si desea utilizar la función <code>printf()</code> utilizando el SW debe comentar la línea <code>#define DISABLE_SWO</code> en el archivo <code><a class="el" href="main_8c.html" title="Basic FSM reading analog data from an LDR sensor and controlling a LED.">main.c</a></code>. En este caso, <b>si está utilizando la placa proporcionada por la universidad, el pin <code>PB3</code> estará activo encendiendo el verde del RGB constantemente y no verá el LED rojo puro sino una mezcla con el verde en su lugar.</b> </p>
 </blockquote>
-<p>Look at the following picture to see the shield provided by the university:</p>
+<p>Mire la siguiente imagen para ver la <em>shield</em> donde se encuentra el LED rojo y el sensor LDR:</p>
 <div class="image">
 <img src="shield.png" alt=""/>
 <div class="caption">
 Shield</div></div>
-   <h1><a class="anchor" id="autotoc_md3"></a>
-References</h1>
+   <h1><a class="anchor" id="autotoc_md7"></a>
+Referencias</h1>
 <ul>
 <li><b>[1]</b>: <a href="https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=785#section-0">Documentation available in the Moodle of the course</a></li>
 <li><b>[2]</b>: <a href="https://web.eece.maine.edu/~zhu/book/index.php">Embedded Systems with ARM Cortex-M Microcontrollers in Assembly Language and C (Fourth Edition)</a> for explanations and examples of use of the ARM Cortex-M microcontrollers in C with CMSIS.</li>

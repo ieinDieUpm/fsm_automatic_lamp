@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['deactivation_16',['DEACTIVATION',['../fsm__thermostat_8h.html#a28042ae0747ae8fb561ae0dd527ee27eaeb8af80512f6c2e1ec4d172435939d91',1,'fsm_thermostat.h']]],
-  ['do_5fthermostat_5foff_17',['do_thermostat_off',['../fsm__thermostat_8c.html#a4546cc077a2e9160d9df85f13f08690b',1,'fsm_thermostat.c']]],
-  ['do_5fthermostat_5fon_18',['do_thermostat_on',['../fsm__thermostat_8c.html#ae23498b2736c092168ffe1893342bac9',1,'fsm_thermostat.c']]]
+  ['deactivation_20',['DEACTIVATION',['../fsm__automatic__lamp_8h.html#a6647388b5a64af1aa35af3496f5f67fdaeb8af80512f6c2e1ec4d172435939d91',1,'fsm_automatic_lamp.h']]],
+  ['do_5flamp_5foff_21',['do_lamp_off',['../fsm__automatic__lamp_8c.html#a6a6f760379416f5961cd4a4f2eb39781',1,'fsm_automatic_lamp.c']]],
+  ['do_5flamp_5fon_22',['do_lamp_on',['../fsm__automatic__lamp_8c.html#ab6e9945db991579b9fc42d5f57664869',1,'fsm_automatic_lamp.c']]]
 ];

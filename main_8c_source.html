@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FSM thermostat: main.c Source File</title>
+<title>FSM automatic lamp: main.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">FSM thermostat
+   <div id="projectname">FSM automatic lamp
    </div>
   </td>
  </tr>
@@ -91,75 +91,72 @@ $(document).ready(function(){initNavTree('main_8c_source.html',''); initResizabl
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="port__system_8h.html">port_system.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="port__led_8h.html">port_led.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fsm__thermostat_8h.html">fsm_thermostat.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fsm__automatic__lamp_8h.html">fsm_automatic_lamp.h</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/* Defines and macros --------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//#define USE_LED_ON</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/* MAIN FUNCTION */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/* MAIN FUNCTION */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define DISABLE_SWO</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   26</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// Local variables</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    uint8_t previous_thermostat_status = <a class="code" href="fsm__thermostat_8h.html#a28042ae0747ae8fb561ae0dd527ee27ea6ce26a62afab55d7606ad4e92428b30c">UNKNOWN</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    uint8_t previous_lamp_status = <a class="code" href="fsm__automatic__lamp_8h.html#a6647388b5a64af1aa35af3496f5f67fda6ce26a62afab55d7606ad4e92428b30c">UNKNOWN</a>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">/* Init board */</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="port__system_8h.html#ae02ed4f544f54b1cdd88448a9eecb9cb">port_system_init</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#ifdef USE_LED_ON</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#ifdef DISABLE_SWO</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Initialize the GPIOs for the LED on which might be off and it is not part of the FSM</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="port__led_8h.html#a39c0517c92dd91171bb4d598879578f0">port_led_init</a>(&amp;<a class="code" href="port__led_8h.html#a4d38971fa63b133591ce7561b87291d8">led_on</a>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="port__led_8h.html#a716667ed18bac66a8d7cd892513e7549">port_led_on</a>(&amp;<a class="code" href="port__led_8h.html#a4d38971fa63b133591ce7561b87291d8">led_on</a>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="port__system_8h.html#ae6ca17ba9c9d055d442cf1e4a73be046">port_system_delay_ms</a>(500); <span class="comment">// Wait for 500 ms</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="port__led_8h.html#a11263e3bf9dd4816b51abbab10af4213">port_led_off</a>(&amp;<a class="code" href="port__led_8h.html#a4d38971fa63b133591ce7561b87291d8">led_on</a>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Create an thermostat FSM and get a pointer to it</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    fsm_t *p_fsm_thermostat = <a class="code" href="fsm__thermostat_8h.html#a499cfd30bdafeeb5d147466d20212ab7">fsm_thermostat_new</a>(&amp;<a class="code" href="port__led_8h.html#a49435368839f7e7d40afa74348c02be9">led_heater_active</a>, &amp;<a class="code" href="port__led_8h.html#a4e945b09b4619f377c34d9e7a42530fb">led_comfort_temperature</a>, &amp;<a class="code" href="port__temp__sensor_8h.html#a057ca140fc6f9b04ecf4548065ca04b9">temp_sensor_thermostat</a>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">while</span> (1)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="comment">// Launch the FSM</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        fsm_fire(p_fsm_thermostat);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        uint8_t current_thermostat_status = <a class="code" href="fsm__thermostat_8h.html#af4b0dcfd6facf1115588ef8fcb39ad62">fsm_thermostat_get_status</a>(p_fsm_thermostat);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> (current_thermostat_status != previous_thermostat_status)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            uint32_t last_time_activated = <a class="code" href="fsm__thermostat_8h.html#a284cd5eb6ac0431d6682b0ed11e1297f">fsm_thermostat_get_last_time_event</a>(p_fsm_thermostat, current_thermostat_status);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">if</span> (current_thermostat_status == <a class="code" href="fsm__thermostat_8h.html#a28042ae0747ae8fb561ae0dd527ee27ea8b7f2cbefe8879fe98627feb05632045">ACTIVATION</a>)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                printf(<span class="stringliteral">&quot;Thermostat ON at %ld\n&quot;</span>, last_time_activated);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (current_thermostat_status == <a class="code" href="fsm__thermostat_8h.html#a28042ae0747ae8fb561ae0dd527ee27eaeb8af80512f6c2e1ec4d172435939d91">DEACTIVATION</a>)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                printf(<span class="stringliteral">&quot;Thermostat OFF at %ld\n&quot;</span>, last_time_activated);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            previous_thermostat_status = current_thermostat_status;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="port__system_8h.html#aedba1c00f3e11b81226406c03db75c14">port_system_gpio_config</a>(GPIOB, 3, <a class="code" href="port__system_8h.html#a8b9e26ba32586932cc345bee5fecb180">GPIO_MODE_OUT</a>, <a class="code" href="port__system_8h.html#a04e8f9e8675a2f61021a23cbcae85a20">GPIO_PUPDR_NOPULL</a>);    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    GPIOB-&gt;ODR &amp;= ~<a class="code" href="port__system_8h.html#ad8e7767483a0c8f878cab29ad46ec656">BIT_POS_TO_MASK</a>(3);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Create an automatic lamp FSM and get a pointer to it</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    fsm_t *p_fsm_lamp = <a class="code" href="fsm__automatic__lamp_8h.html#a021035b36a17c3da00abc7bf1b02c81d">fsm_lamp_new</a>(&amp;<a class="code" href="port__led_8h.html#ae2b7f7df216a8d6a74e7f1be7e42f8c3">led_lamp</a>, &amp;<a class="code" href="port__led_8h.html#a1a98127c78dde428e7a276fb930942a9">led_status</a>, &amp;<a class="code" href="port__ldr__sensor_8h.html#a97eae8f70389ab9cf67f98ccb7dff757">ldr_sensor_lamp</a>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Launch the FSM</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        fsm_fire(p_fsm_lamp);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        uint8_t current_lamp_status = <a class="code" href="fsm__automatic__lamp_8h.html#abf8885150cd2949b4c43a785b71b3f09">fsm_lamp_get_status</a>(p_fsm_lamp);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> (current_lamp_status != previous_lamp_status)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            uint32_t last_time_activated = <a class="code" href="fsm__automatic__lamp_8h.html#aeb7f265c625e4aec7716627c7f0b8072">fsm_lamp_get_last_time_event</a>(p_fsm_lamp, current_lamp_status);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">if</span> (current_lamp_status == <a class="code" href="fsm__automatic__lamp_8h.html#a6647388b5a64af1aa35af3496f5f67fda8b7f2cbefe8879fe98627feb05632045">ACTIVATION</a>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                printf(<span class="stringliteral">&quot;Lamp ON at %ld\n&quot;</span>, last_time_activated);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (current_lamp_status == <a class="code" href="fsm__automatic__lamp_8h.html#a6647388b5a64af1aa35af3496f5f67fdaeb8af80512f6c2e1ec4d172435939d91">DEACTIVATION</a>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                printf(<span class="stringliteral">&quot;Lamp OFF at %ld\n&quot;</span>, last_time_activated);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            previous_lamp_status = current_lamp_status;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="afsm__thermostat_8h_html_a499cfd30bdafeeb5d147466d20212ab7"><div class="ttname"><a href="fsm__thermostat_8h.html#a499cfd30bdafeeb5d147466d20212ab7">fsm_thermostat_new</a></div><div class="ttdeci">fsm_t * fsm_thermostat_new(port_led_hw_t *p_led_heat, port_led_hw_t *p_led_comfort, port_temp_hw_t *p_temp)</div><div class="ttdoc">Creates a new thermostat FSM.</div><div class="ttdef"><b>Definition:</b> <a href="fsm__thermostat_8c_source.html#l00174">fsm_thermostat.c:174</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a4e945b09b4619f377c34d9e7a42530fb"><div class="ttname"><a href="port__led_8h.html#a4e945b09b4619f377c34d9e7a42530fb">led_comfort_temperature</a></div><div class="ttdeci">port_led_hw_t led_comfort_temperature</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00018">port_led.c:18</a></div></div>
-<div class="ttc" id="afsm__thermostat_8h_html_a28042ae0747ae8fb561ae0dd527ee27ea6ce26a62afab55d7606ad4e92428b30c"><div class="ttname"><a href="fsm__thermostat_8h.html#a28042ae0747ae8fb561ae0dd527ee27ea6ce26a62afab55d7606ad4e92428b30c">UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div><div class="ttdef"><b>Definition:</b> <a href="fsm__thermostat_8h_source.html#l00044">fsm_thermostat.h:44</a></div></div>
-<div class="ttc" id="afsm__thermostat_8h_html_a28042ae0747ae8fb561ae0dd527ee27ea8b7f2cbefe8879fe98627feb05632045"><div class="ttname"><a href="fsm__thermostat_8h.html#a28042ae0747ae8fb561ae0dd527ee27ea8b7f2cbefe8879fe98627feb05632045">ACTIVATION</a></div><div class="ttdeci">@ ACTIVATION</div><div class="ttdef"><b>Definition:</b> <a href="fsm__thermostat_8h_source.html#l00045">fsm_thermostat.h:45</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a39c0517c92dd91171bb4d598879578f0"><div class="ttname"><a href="port__led_8h.html#a39c0517c92dd91171bb4d598879578f0">port_led_init</a></div><div class="ttdeci">void port_led_init(port_led_hw_t *p_led)</div><div class="ttdoc">Initializes the LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00041">port_led.c:41</a></div></div>
-<div class="ttc" id="aport__system_8h_html_ae6ca17ba9c9d055d442cf1e4a73be046"><div class="ttname"><a href="port__system_8h.html#ae6ca17ba9c9d055d442cf1e4a73be046">port_system_delay_ms</a></div><div class="ttdeci">void port_system_delay_ms(uint32_t ms)</div><div class="ttdoc">Wait for some milliseconds.</div><div class="ttdef"><b>Definition:</b> <a href="port__system_8c_source.html#l00135">port_system.c:135</a></div></div>
-<div class="ttc" id="afsm__thermostat_8h_html"><div class="ttname"><a href="fsm__thermostat_8h.html">fsm_thermostat.h</a></div><div class="ttdoc">Header file for the thermostat FSM.</div></div>
-<div class="ttc" id="aport__led_8h_html_a11263e3bf9dd4816b51abbab10af4213"><div class="ttname"><a href="port__led_8h.html#a11263e3bf9dd4816b51abbab10af4213">port_led_off</a></div><div class="ttdeci">void port_led_off(port_led_hw_t *p_led)</div><div class="ttdoc">Turn off the LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00031">port_led.c:31</a></div></div>
+<div class="ttc" id="aport__system_8h_html_a8b9e26ba32586932cc345bee5fecb180"><div class="ttname"><a href="port__system_8h.html#a8b9e26ba32586932cc345bee5fecb180">GPIO_MODE_OUT</a></div><div class="ttdeci">#define GPIO_MODE_OUT</div><div class="ttdef"><b>Definition:</b> <a href="port__system_8h_source.html#l00043">port_system.h:43</a></div></div>
+<div class="ttc" id="aport__system_8h_html_a04e8f9e8675a2f61021a23cbcae85a20"><div class="ttname"><a href="port__system_8h.html#a04e8f9e8675a2f61021a23cbcae85a20">GPIO_PUPDR_NOPULL</a></div><div class="ttdeci">#define GPIO_PUPDR_NOPULL</div><div class="ttdef"><b>Definition:</b> <a href="port__system_8h_source.html#l00047">port_system.h:47</a></div></div>
+<div class="ttc" id="afsm__automatic__lamp_8h_html_abf8885150cd2949b4c43a785b71b3f09"><div class="ttname"><a href="fsm__automatic__lamp_8h.html#abf8885150cd2949b4c43a785b71b3f09">fsm_lamp_get_status</a></div><div class="ttdeci">uint8_t fsm_lamp_get_status(fsm_t *p_this)</div><div class="ttdoc">Gets the automatic lamp status.</div><div class="ttdef"><b>Definition:</b> <a href="fsm__automatic__lamp_8c_source.html#l00123">fsm_automatic_lamp.c:123</a></div></div>
+<div class="ttc" id="afsm__automatic__lamp_8h_html_a6647388b5a64af1aa35af3496f5f67fda8b7f2cbefe8879fe98627feb05632045"><div class="ttname"><a href="fsm__automatic__lamp_8h.html#a6647388b5a64af1aa35af3496f5f67fda8b7f2cbefe8879fe98627feb05632045">ACTIVATION</a></div><div class="ttdeci">@ ACTIVATION</div><div class="ttdef"><b>Definition:</b> <a href="fsm__automatic__lamp_8h_source.html#l00045">fsm_automatic_lamp.h:45</a></div></div>
+<div class="ttc" id="aport__ldr__sensor_8h_html_a97eae8f70389ab9cf67f98ccb7dff757"><div class="ttname"><a href="port__ldr__sensor_8h.html#a97eae8f70389ab9cf67f98ccb7dff757">ldr_sensor_lamp</a></div><div class="ttdeci">port_ldr_hw_t ldr_sensor_lamp</div><div class="ttdef"><b>Definition:</b> <a href="port__ldr__sensor_8c_source.html#l00020">port_ldr_sensor.c:20</a></div></div>
 <div class="ttc" id="aport__led_8h_html"><div class="ttname"><a href="port__led_8h.html">port_led.h</a></div><div class="ttdoc">Header file for the LED port layer.</div></div>
-<div class="ttc" id="afsm__thermostat_8h_html_a28042ae0747ae8fb561ae0dd527ee27eaeb8af80512f6c2e1ec4d172435939d91"><div class="ttname"><a href="fsm__thermostat_8h.html#a28042ae0747ae8fb561ae0dd527ee27eaeb8af80512f6c2e1ec4d172435939d91">DEACTIVATION</a></div><div class="ttdeci">@ DEACTIVATION</div><div class="ttdef"><b>Definition:</b> <a href="fsm__thermostat_8h_source.html#l00046">fsm_thermostat.h:46</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a4d38971fa63b133591ce7561b87291d8"><div class="ttname"><a href="port__led_8h.html#a4d38971fa63b133591ce7561b87291d8">led_on</a></div><div class="ttdeci">port_led_hw_t led_on</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00019">port_led.c:19</a></div></div>
+<div class="ttc" id="afsm__automatic__lamp_8h_html_aeb7f265c625e4aec7716627c7f0b8072"><div class="ttname"><a href="fsm__automatic__lamp_8h.html#aeb7f265c625e4aec7716627c7f0b8072">fsm_lamp_get_last_time_event</a></div><div class="ttdeci">uint32_t fsm_lamp_get_last_time_event(fsm_t *p_this, uint8_t event)</div><div class="ttdoc">Gets the last time there was an event in the automatic lamp. If the event is not found,...</div><div class="ttdef"><b>Definition:</b> <a href="fsm__automatic__lamp_8c_source.html#l00108">fsm_automatic_lamp.c:108</a></div></div>
 <div class="ttc" id="aport__system_8h_html"><div class="ttname"><a href="port__system_8h.html">port_system.h</a></div><div class="ttdoc">Header for port_system.c file.</div></div>
-<div class="ttc" id="aport__led_8h_html_a49435368839f7e7d40afa74348c02be9"><div class="ttname"><a href="port__led_8h.html#a49435368839f7e7d40afa74348c02be9">led_heater_active</a></div><div class="ttdeci">port_led_hw_t led_heater_active</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00017">port_led.c:17</a></div></div>
-<div class="ttc" id="afsm__thermostat_8h_html_af4b0dcfd6facf1115588ef8fcb39ad62"><div class="ttname"><a href="fsm__thermostat_8h.html#af4b0dcfd6facf1115588ef8fcb39ad62">fsm_thermostat_get_status</a></div><div class="ttdeci">uint8_t fsm_thermostat_get_status(fsm_t *p_this)</div><div class="ttdoc">Gets the thermostat status.</div><div class="ttdef"><b>Definition:</b> <a href="fsm__thermostat_8c_source.html#l00123">fsm_thermostat.c:123</a></div></div>
+<div class="ttc" id="aport__system_8h_html_aedba1c00f3e11b81226406c03db75c14"><div class="ttname"><a href="port__system_8h.html#aedba1c00f3e11b81226406c03db75c14">port_system_gpio_config</a></div><div class="ttdeci">void port_system_gpio_config(GPIO_TypeDef *p_port, uint8_t pin, uint8_t mode, uint8_t pupd)</div><div class="ttdoc">Configure the mode and pull of a GPIO.</div><div class="ttdef"><b>Definition:</b> <a href="port__system_8c_source.html#l00158">port_system.c:158</a></div></div>
+<div class="ttc" id="afsm__automatic__lamp_8h_html"><div class="ttname"><a href="fsm__automatic__lamp_8h.html">fsm_automatic_lamp.h</a></div><div class="ttdoc">Header file for the automatic lamp FSM.</div></div>
+<div class="ttc" id="aport__led_8h_html_ae2b7f7df216a8d6a74e7f1be7e42f8c3"><div class="ttname"><a href="port__led_8h.html#ae2b7f7df216a8d6a74e7f1be7e42f8c3">led_lamp</a></div><div class="ttdeci">port_led_hw_t led_lamp</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00017">port_led.c:17</a></div></div>
+<div class="ttc" id="aport__led_8h_html_a1a98127c78dde428e7a276fb930942a9"><div class="ttname"><a href="port__led_8h.html#a1a98127c78dde428e7a276fb930942a9">led_status</a></div><div class="ttdeci">port_led_hw_t led_status</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00018">port_led.c:18</a></div></div>
+<div class="ttc" id="afsm__automatic__lamp_8h_html_a6647388b5a64af1aa35af3496f5f67fda6ce26a62afab55d7606ad4e92428b30c"><div class="ttname"><a href="fsm__automatic__lamp_8h.html#a6647388b5a64af1aa35af3496f5f67fda6ce26a62afab55d7606ad4e92428b30c">UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div><div class="ttdef"><b>Definition:</b> <a href="fsm__automatic__lamp_8h_source.html#l00044">fsm_automatic_lamp.h:44</a></div></div>
+<div class="ttc" id="aport__system_8h_html_ad8e7767483a0c8f878cab29ad46ec656"><div class="ttname"><a href="port__system_8h.html#ad8e7767483a0c8f878cab29ad46ec656">BIT_POS_TO_MASK</a></div><div class="ttdeci">#define BIT_POS_TO_MASK(x)</div><div class="ttdef"><b>Definition:</b> <a href="port__system_8h_source.html#l00022">port_system.h:22</a></div></div>
 <div class="ttc" id="amain_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main function.</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00026">main.c:26</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a716667ed18bac66a8d7cd892513e7549"><div class="ttname"><a href="port__led_8h.html#a716667ed18bac66a8d7cd892513e7549">port_led_on</a></div><div class="ttdeci">void port_led_on(port_led_hw_t *p_led)</div><div class="ttdoc">Turn on the LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00026">port_led.c:26</a></div></div>
 <div class="ttc" id="aport__system_8h_html_ae02ed4f544f54b1cdd88448a9eecb9cb"><div class="ttname"><a href="port__system_8h.html#ae02ed4f544f54b1cdd88448a9eecb9cb">port_system_init</a></div><div class="ttdeci">size_t port_system_init(void)</div><div class="ttdoc">This function is based on the initialization of the HAL Library; it must be the first thing to be exe...</div><div class="ttdef"><b>Definition:</b> <a href="port__system_8c_source.html#l00089">port_system.c:89</a></div></div>
-<div class="ttc" id="aport__temp__sensor_8h_html_a057ca140fc6f9b04ecf4548065ca04b9"><div class="ttname"><a href="port__temp__sensor_8h.html#a057ca140fc6f9b04ecf4548065ca04b9">temp_sensor_thermostat</a></div><div class="ttdeci">port_temp_hw_t temp_sensor_thermostat</div><div class="ttdef"><b>Definition:</b> <a href="port__temp__sensor_8c_source.html#l00020">port_temp_sensor.c:20</a></div></div>
-<div class="ttc" id="afsm__thermostat_8h_html_a284cd5eb6ac0431d6682b0ed11e1297f"><div class="ttname"><a href="fsm__thermostat_8h.html#a284cd5eb6ac0431d6682b0ed11e1297f">fsm_thermostat_get_last_time_event</a></div><div class="ttdeci">uint32_t fsm_thermostat_get_last_time_event(fsm_t *p_this, uint8_t event)</div><div class="ttdoc">Gets the last time there was an event in the thermostat. If the event is not found,...</div><div class="ttdef"><b>Definition:</b> <a href="fsm__thermostat_8c_source.html#l00108">fsm_thermostat.c:108</a></div></div>
+<div class="ttc" id="afsm__automatic__lamp_8h_html_a6647388b5a64af1aa35af3496f5f67fdaeb8af80512f6c2e1ec4d172435939d91"><div class="ttname"><a href="fsm__automatic__lamp_8h.html#a6647388b5a64af1aa35af3496f5f67fdaeb8af80512f6c2e1ec4d172435939d91">DEACTIVATION</a></div><div class="ttdeci">@ DEACTIVATION</div><div class="ttdef"><b>Definition:</b> <a href="fsm__automatic__lamp_8h_source.html#l00046">fsm_automatic_lamp.h:46</a></div></div>
+<div class="ttc" id="afsm__automatic__lamp_8h_html_a021035b36a17c3da00abc7bf1b02c81d"><div class="ttname"><a href="fsm__automatic__lamp_8h.html#a021035b36a17c3da00abc7bf1b02c81d">fsm_lamp_new</a></div><div class="ttdeci">fsm_t * fsm_lamp_new(port_led_hw_t *p_led_lamp, port_led_hw_t *p_led_status, port_ldr_hw_t *p_ldr)</div><div class="ttdoc">Creates a new automatic lamp FSM.</div><div class="ttdef"><b>Definition:</b> <a href="fsm__automatic__lamp_8c_source.html#l00174">fsm_automatic_lamp.c:174</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

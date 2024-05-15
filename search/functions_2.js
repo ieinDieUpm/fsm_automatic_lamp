@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['check_5fcomfort_145',['check_comfort',['../fsm__thermostat_8c.html#a046fdd9c04ba84f69a0fe77895e3c9d5',1,'fsm_thermostat.c']]],
-  ['check_5fheat_146',['check_heat',['../fsm__thermostat_8c.html#a039e3763acb73c62a5315c3990748690',1,'fsm_thermostat.c']]]
+  ['check_5foff_143',['check_off',['../fsm__automatic__lamp_8c.html#a44c28497a4aab5947a265a7a75314135',1,'fsm_automatic_lamp.c']]],
+  ['check_5fon_144',['check_on',['../fsm__automatic__lamp_8c.html#a7867a8f9e967d5da8d38c324d28158a6',1,'fsm_automatic_lamp.c']]]
 ];

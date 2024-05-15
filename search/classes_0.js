@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fsm_5fthermostat_5ft_128',['fsm_thermostat_t',['../structfsm__thermostat__t.html',1,'']]]
+  ['fsm_5fautomatic_5flamp_5ft_126',['fsm_automatic_lamp_t',['../structfsm__automatic__lamp__t.html',1,'']]]
 ];

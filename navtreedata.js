@@ -22,11 +22,16 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "FSM thermostat", "index.html", [
-    [ "Thermostat with FSM and ADC", "index.html", [
-      [ "Temperature sensor", "index.html#autotoc_md1", null ],
-      [ "LEDs", "index.html#autotoc_md2", null ],
-      [ "References", "index.html#autotoc_md3", null ]
+  [ "FSM automatic lamp", "index.html", [
+    [ "Sistema de iluminación automática", "index.html", [
+      [ "Implementación HW", "index.html#autotoc_md3", null ],
+      [ "Sensor LDR", "index.html#autotoc_md4", null ],
+      [ "LEDs", "index.html#autotoc_md5", null ],
+      [ "Funcionamiento detallado del sistema", "index.html#autotoc_md6", null ],
+      [ "Referencias", "index.html#autotoc_md7", null ]
+    ] ],
+    [ "Ejercicio", "md_ejercicio.html", [
+      [ "Preguntas", "md_ejercicio.html#autotoc_md1", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
