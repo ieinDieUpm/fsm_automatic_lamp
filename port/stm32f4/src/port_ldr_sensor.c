@@ -41,7 +41,7 @@ double port_ldr_sensor_get_resistance(port_ldr_hw_t *p_ldr)
     return p_ldr->resistance_ohms;
 }
 
-void port_ldr_sensor_save_adc_value(port_ldr_hw_t *p_ldr, double adc_value)
+void port_ldr_sensor_save_adc_value(port_ldr_hw_t *p_ldr, uint32_t adc_value)
 {
     // TO-DO: Convert the ADC value to light resistance in ohms looking at the voltage divider circuit
     

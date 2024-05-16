@@ -54,7 +54,7 @@ double port_ldr_sensor_get_resistance(port_ldr_hw_t *pir_sensor);
  * @param p_ldr Pointer to the LDR sensor structure.
  * @param adc_value ADC value of the LDR sensor.
  */
-void port_ldr_sensor_save_adc_value(port_ldr_hw_t *p_ldr, double adc_value);
+void port_ldr_sensor_save_adc_value(port_ldr_hw_t *p_ldr, uint32_t adc_value);
 
 /**
  * @brief Initializes the LDR sensor.
