@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FSM automatic lamp: port/stm32f4/include/port_automatic_lamp.h Source File</title>
+<title>FSM automatic lamp: port/include/port_automatic_lamp.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,25 +92,19 @@ $(document).ready(function(){initNavTree('port__automatic__lamp_8h_source.html',
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/* Includes ------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/* Standard C includes */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/* HW dependent includes */</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="port__system_8h.html">port_system.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fsm__automatic__lamp_8h.html">fsm_automatic_lamp.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/* Defines and macros --------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// HW Nucleo-STM32F446RE:</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="port__automatic__lamp_8h.html#a7e7ae4ae621a76f40df9be7859a6b150">   22</a></span>&#160;<span class="preprocessor">#define AUTOMATIC_LAMP_MEASUREMENT_TIMER </span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">void port_automatic_lamp_timer_setup(fsm_automatic_lamp_t *p_automatic_lamp);</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* Defines and macros --------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="port__automatic__lamp_8h.html#a8aad075545baa969012b5f25c6bbf072">   18</a></span>&#160;<span class="preprocessor">#define PORT_AUTOMATIC_LAMP_ID 0 </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">void port_automatic_lamp_timer_setup(uint32_t automatic_lamp_id);</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PORT_AUTOMATIC_LAMP_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aport__system_8h_html"><div class="ttname"><a href="port__system_8h.html">port_system.h</a></div><div class="ttdoc">Header for port_system.c file.</div></div>
-<div class="ttc" id="afsm__automatic__lamp_8h_html"><div class="ttname"><a href="fsm__automatic__lamp_8h.html">fsm_automatic_lamp.h</a></div><div class="ttdoc">Header file for the automatic lamp FSM.</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_aff93352f483d815f4aad2ce8569e33b.html">stm32f4</a></li><li class="navelem"><a class="el" href="dir_8338216af5b9c682f75cf365d3e92719.html">include</a></li><li class="navelem"><a class="el" href="port__automatic__lamp_8h.html">port_automatic_lamp.h</a></li>
+    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_3b4aa3705552218a151a51dac694657d.html">include</a></li><li class="navelem"><a class="el" href="port__automatic__lamp_8h.html">port_automatic_lamp.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

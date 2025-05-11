@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FSM automatic lamp: port/stm32f4/include/port_led.h File Reference</title>
+<title>FSM automatic lamp: port/include/port_led.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,167 +83,117 @@ $(document).ready(function(){initNavTree('port__led_8h.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">port_led.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for the LED port layer.  
+<p>Header for the portable functions to interact with the HW of the LEDs. The functions must be implemented in the platform-specific code.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="port__system_8h_source.html">port_system.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 </div>
 <p><a href="port__led_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to define the HW dependencies of a LED.  <a href="structport__led__hw__t.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a4ed7b3c5ae172a271eb85d80e0337b2e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a4ed7b3c5ae172a271eb85d80e0337b2e">LED_LAMP_GPIO</a>&#160;&#160;&#160;GPIOB</td></tr>
-<tr class="separator:a4ed7b3c5ae172a271eb85d80e0337b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb16b487fed40ff121d698563a249d40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#adb16b487fed40ff121d698563a249d40">LED_LAMP_PIN</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:adb16b487fed40ff121d698563a249d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8140c4e2ee1fc1bf214a08473fefc0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#ae8140c4e2ee1fc1bf214a08473fefc0b">LED_STATUS_GPIO</a>&#160;&#160;&#160;GPIOA</td></tr>
-<tr class="separator:ae8140c4e2ee1fc1bf214a08473fefc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa42b43d66e323049489072884d0a2ee6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#aa42b43d66e323049489072884d0a2ee6">LED_STATUS_PIN</a>&#160;&#160;&#160;5</td></tr>
-<tr class="separator:aa42b43d66e323049489072884d0a2ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a3b1bc5b715ef1894427860a8634ddd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a9a3b1bc5b715ef1894427860a8634ddd">PORT_LED_LAMP_ID</a></td></tr>
+<tr class="separator:a9a3b1bc5b715ef1894427860a8634ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b7a820b6aa019cdac9db23286e41f94"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a8b7a820b6aa019cdac9db23286e41f94">PORT_LED_STATUS_ID</a></td></tr>
+<tr class="separator:a8b7a820b6aa019cdac9db23286e41f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a39c0517c92dd91171bb4d598879578f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a39c0517c92dd91171bb4d598879578f0">port_led_init</a> (<a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led)</td></tr>
-<tr class="memdesc:a39c0517c92dd91171bb4d598879578f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the LED.  <a href="port__led_8h.html#a39c0517c92dd91171bb4d598879578f0">More...</a><br /></td></tr>
-<tr class="separator:a39c0517c92dd91171bb4d598879578f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0176532a14d96c7c5865aa2afe224804"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a0176532a14d96c7c5865aa2afe224804">port_led_get_status</a> (<a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led)</td></tr>
-<tr class="memdesc:a0176532a14d96c7c5865aa2afe224804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current state of the LED.  <a href="port__led_8h.html#a0176532a14d96c7c5865aa2afe224804">More...</a><br /></td></tr>
-<tr class="separator:a0176532a14d96c7c5865aa2afe224804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a716667ed18bac66a8d7cd892513e7549"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a716667ed18bac66a8d7cd892513e7549">port_led_on</a> (<a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led)</td></tr>
-<tr class="memdesc:a716667ed18bac66a8d7cd892513e7549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn on the LED.  <a href="port__led_8h.html#a716667ed18bac66a8d7cd892513e7549">More...</a><br /></td></tr>
-<tr class="separator:a716667ed18bac66a8d7cd892513e7549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11263e3bf9dd4816b51abbab10af4213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a11263e3bf9dd4816b51abbab10af4213">port_led_off</a> (<a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led)</td></tr>
-<tr class="memdesc:a11263e3bf9dd4816b51abbab10af4213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off the LED.  <a href="port__led_8h.html#a11263e3bf9dd4816b51abbab10af4213">More...</a><br /></td></tr>
-<tr class="separator:a11263e3bf9dd4816b51abbab10af4213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4e509e4af3c212b68759f723b0eb643"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#ae4e509e4af3c212b68759f723b0eb643">port_led_toggle</a> (<a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led)</td></tr>
-<tr class="memdesc:ae4e509e4af3c212b68759f723b0eb643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the LED state.  <a href="port__led_8h.html#ae4e509e4af3c212b68759f723b0eb643">More...</a><br /></td></tr>
-<tr class="separator:ae4e509e4af3c212b68759f723b0eb643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ae2b7f7df216a8d6a74e7f1be7e42f8c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#ae2b7f7df216a8d6a74e7f1be7e42f8c3">led_lamp</a></td></tr>
-<tr class="separator:ae2b7f7df216a8d6a74e7f1be7e42f8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a98127c78dde428e7a276fb930942a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a1a98127c78dde428e7a276fb930942a9">led_status</a></td></tr>
-<tr class="separator:a1a98127c78dde428e7a276fb930942a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc255d224b21c011f75ce1a3ea96885"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a0cc255d224b21c011f75ce1a3ea96885">port_led_init</a> (uint32_t led_id)</td></tr>
+<tr class="memdesc:a0cc255d224b21c011f75ce1a3ea96885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the HW specifications of a given LED.  <a href="port__led_8h.html#a0cc255d224b21c011f75ce1a3ea96885">More...</a><br /></td></tr>
+<tr class="separator:a0cc255d224b21c011f75ce1a3ea96885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a216044cfec61d9b3094cf67b44ac2251"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a216044cfec61d9b3094cf67b44ac2251">port_led_get_value</a> (uint32_t led_id)</td></tr>
+<tr class="memdesc:a216044cfec61d9b3094cf67b44ac2251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of the GPIO connected to the LED.  <a href="port__led_8h.html#a216044cfec61d9b3094cf67b44ac2251">More...</a><br /></td></tr>
+<tr class="separator:a216044cfec61d9b3094cf67b44ac2251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa23aa23cf4a80027806eeb482ea5f27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#aa23aa23cf4a80027806eeb482ea5f27f">port_led_set_value</a> (uint32_t led_id, bool value)</td></tr>
+<tr class="memdesc:aa23aa23cf4a80027806eeb482ea5f27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the GPIO connected to the LED.  <a href="port__led_8h.html#aa23aa23cf4a80027806eeb482ea5f27f">More...</a><br /></td></tr>
+<tr class="separator:aa23aa23cf4a80027806eeb482ea5f27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c7aeedc7b0e9e07e8af07d6a630a1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__led_8h.html#a50c7aeedc7b0e9e07e8af07d6a630a1f">port_led_toggle</a> (uint32_t led_id)</td></tr>
+<tr class="memdesc:a50c7aeedc7b0e9e07e8af07d6a630a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the LED state.  <a href="port__led_8h.html#a50c7aeedc7b0e9e07e8af07d6a630a1f">More...</a><br /></td></tr>
+<tr class="separator:a50c7aeedc7b0e9e07e8af07d6a630a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the LED port layer. </p>
+<div class="textblock"><p>Header for the portable functions to interact with the HW of the LEDs. The functions must be implemented in the platform-specific code. </p>
 <dl class="section author"><dt>Author</dt><dd>Josué Pagán (<a href="#" onclick="location.href='mai'+'lto:'+'j.p'+'ag'+'an@'+'up'+'m.e'+'s'; return false;">j.pag<span style="display: none;">.nosp@m.</span>an@u<span style="display: none;">.nosp@m.</span>pm.es</a>) </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>01-05-2024 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01-05-2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="port__led_8h_source.html">port_led.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a4ed7b3c5ae172a271eb85d80e0337b2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ed7b3c5ae172a271eb85d80e0337b2e">&#9670;&nbsp;</a></span>LED_LAMP_GPIO</h2>
+<a id="a9a3b1bc5b715ef1894427860a8634ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a3b1bc5b715ef1894427860a8634ddd">&#9670;&nbsp;</a></span>PORT_LED_LAMP_ID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LED_LAMP_GPIO&#160;&#160;&#160;GPIOB</td>
+          <td class="memname">#define PORT_LED_LAMP_ID</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>GPIO port of the heating LED </p>
+<p>Lamp LED identifier </p>
 
-<p class="definition">Definition at line <a class="el" href="port__led_8h_source.html#l00019">19</a> of file <a class="el" href="port__led_8h_source.html">port_led.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="port__led_8h_source.html#l00017">17</a> of file <a class="el" href="port__led_8h_source.html">port_led.h</a>.</p>
 
 </div>
 </div>
-<a id="adb16b487fed40ff121d698563a249d40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb16b487fed40ff121d698563a249d40">&#9670;&nbsp;</a></span>LED_LAMP_PIN</h2>
+<a id="a8b7a820b6aa019cdac9db23286e41f94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b7a820b6aa019cdac9db23286e41f94">&#9670;&nbsp;</a></span>PORT_LED_STATUS_ID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LED_LAMP_PIN&#160;&#160;&#160;4</td>
+          <td class="memname">#define PORT_LED_STATUS_ID</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>GPIO pin of the heating LED </p>
+<p>Status LED identifier </p>
 
-<p class="definition">Definition at line <a class="el" href="port__led_8h_source.html#l00020">20</a> of file <a class="el" href="port__led_8h_source.html">port_led.h</a>.</p>
-
-</div>
-</div>
-<a id="ae8140c4e2ee1fc1bf214a08473fefc0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8140c4e2ee1fc1bf214a08473fefc0b">&#9670;&nbsp;</a></span>LED_STATUS_GPIO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATUS_GPIO&#160;&#160;&#160;GPIOA</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GPIO port of the deactivation LED </p>
-
-<p class="definition">Definition at line <a class="el" href="port__led_8h_source.html#l00021">21</a> of file <a class="el" href="port__led_8h_source.html">port_led.h</a>.</p>
-
-</div>
-</div>
-<a id="aa42b43d66e323049489072884d0a2ee6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa42b43d66e323049489072884d0a2ee6">&#9670;&nbsp;</a></span>LED_STATUS_PIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATUS_PIN&#160;&#160;&#160;5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GPIO pin of the deactivation LED </p>
-
-<p class="definition">Definition at line <a class="el" href="port__led_8h_source.html#l00022">22</a> of file <a class="el" href="port__led_8h_source.html">port_led.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="port__led_8h_source.html#l00018">18</a> of file <a class="el" href="port__led_8h_source.html">port_led.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0176532a14d96c7c5865aa2afe224804"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0176532a14d96c7c5865aa2afe224804">&#9670;&nbsp;</a></span>port_led_get_status()</h2>
+<a id="a216044cfec61d9b3094cf67b44ac2251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a216044cfec61d9b3094cf67b44ac2251">&#9670;&nbsp;</a></span>port_led_get_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool port_led_get_status </td>
+          <td class="memname">bool port_led_get_value </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *&#160;</td>
-          <td class="paramname"><em>p_led</em></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the current state of the LED. </p>
-<dl class="section return"><dt>Returns</dt><dd>true if the LED is on </dd>
+<p>Get the value of the GPIO connected to the LED. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the LED value is high </dd>
 <dd>
-false if the LED is off </dd></dl>
+false if the LED value is low </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="port__led_8c_source.html#l00020">20</a> of file <a class="el" href="port__led_8c_source.html">port_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stm32f4__led_8c_source.html#l00087">87</a> of file <a class="el" href="stm32f4__led_8c_source.html">stm32f4_led.c</a>.</p>
 
 </div>
 </div>
-<a id="a39c0517c92dd91171bb4d598879578f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39c0517c92dd91171bb4d598879578f0">&#9670;&nbsp;</a></span>port_led_init()</h2>
+<a id="a0cc255d224b21c011f75ce1a3ea96885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc255d224b21c011f75ce1a3ea96885">&#9670;&nbsp;</a></span>port_led_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,71 +201,66 @@ false if the LED is off </dd></dl>
         <tr>
           <td class="memname">void port_led_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *&#160;</td>
-          <td class="paramname"><em>p_led</em></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes the LED. </p>
+<p>Configure the HW specifications of a given LED. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_led</td><td>Pointer to the LED structure. </td></tr>
+    <tr><td class="paramname">led_id</td><td>LED ID. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="port__led_8c_source.html#l00040">40</a> of file <a class="el" href="port__led_8c_source.html">port_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stm32f4__led_8c_source.html#l00048">48</a> of file <a class="el" href="stm32f4__led_8c_source.html">stm32f4_led.c</a>.</p>
 
 </div>
 </div>
-<a id="a11263e3bf9dd4816b51abbab10af4213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11263e3bf9dd4816b51abbab10af4213">&#9670;&nbsp;</a></span>port_led_off()</h2>
+<a id="aa23aa23cf4a80027806eeb482ea5f27f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23aa23cf4a80027806eeb482ea5f27f">&#9670;&nbsp;</a></span>port_led_set_value()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void port_led_off </td>
+          <td class="memname">void port_led_set_value </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *&#160;</td>
-          <td class="paramname"><em>p_led</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>led_id</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Turn off the LED. </p>
-
-<p class="definition">Definition at line <a class="el" href="port__led_8c_source.html#l00030">30</a> of file <a class="el" href="port__led_8c_source.html">port_led.c</a>.</p>
-
-</div>
-</div>
-<a id="a716667ed18bac66a8d7cd892513e7549"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a716667ed18bac66a8d7cd892513e7549">&#9670;&nbsp;</a></span>port_led_on()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">void port_led_on </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *&#160;</td>
-          <td class="paramname"><em>p_led</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Turn on the LED. </p>
+<p>Set the value of the GPIO connected to the LED. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID. </td></tr>
+    <tr><td class="paramname">value</td><td>If true, the LED is set as on. If false, the LED is set as off. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="port__led_8c_source.html#l00025">25</a> of file <a class="el" href="port__led_8c_source.html">port_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stm32f4__led_8c_source.html#l00100">100</a> of file <a class="el" href="stm32f4__led_8c_source.html">stm32f4_led.c</a>.</p>
 
 </div>
 </div>
-<a id="ae4e509e4af3c212b68759f723b0eb643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4e509e4af3c212b68759f723b0eb643">&#9670;&nbsp;</a></span>port_led_toggle()</h2>
+<a id="a50c7aeedc7b0e9e07e8af07d6a630a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50c7aeedc7b0e9e07e8af07d6a630a1f">&#9670;&nbsp;</a></span>port_led_toggle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,51 +268,22 @@ false if the LED is off </dd></dl>
         <tr>
           <td class="memname">void port_led_toggle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *&#160;</td>
-          <td class="paramname"><em>p_led</em></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Toggles the LED state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="port__led_8c_source.html#l00035">35</a> of file <a class="el" href="port__led_8c_source.html">port_led.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ae2b7f7df216a8d6a74e7f1be7e42f8c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2b7f7df216a8d6a74e7f1be7e42f8c3">&#9670;&nbsp;</a></span>led_lamp</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> led_lamp</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Heating LED of the automatic lamp. </p>
-
-<p class="definition">Definition at line <a class="el" href="port__led_8c_source.html#l00017">17</a> of file <a class="el" href="port__led_8c_source.html">port_led.c</a>.</p>
-
-</div>
-</div>
-<a id="a1a98127c78dde428e7a276fb930942a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a98127c78dde428e7a276fb930942a9">&#9670;&nbsp;</a></span>led_status</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> led_status</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Cooling LED of the automatic lamp. </p>
-
-<p class="definition">Definition at line <a class="el" href="port__led_8c_source.html#l00018">18</a> of file <a class="el" href="port__led_8c_source.html">port_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stm32f4__led_8c_source.html#l00114">114</a> of file <a class="el" href="stm32f4__led_8c_source.html">stm32f4_led.c</a>.</p>
 
 </div>
 </div>
@@ -376,7 +292,7 @@ false if the LED is off </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_aff93352f483d815f4aad2ce8569e33b.html">stm32f4</a></li><li class="navelem"><a class="el" href="dir_8338216af5b9c682f75cf365d3e92719.html">include</a></li><li class="navelem"><a class="el" href="port__led_8h.html">port_led.h</a></li>
+    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_3b4aa3705552218a151a51dac694657d.html">include</a></li><li class="navelem"><a class="el" href="port__led_8h.html">port_led.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

@@ -86,7 +86,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">Sistema de iluminación automática </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Este proyecto implementa un sistema de iluminación automática con un sensor LDR y 2 LEDs. El sistema utiliza una FSM para gestionar los diferentes estados del sistema y el hardware. La configuración HW se muestra en la siguiente imagen:</p>
+<div class="textblock"><p>Este proyecto implementa un sistema de iluminación automática con un sensor LDR y 2 LEDs. El sistema utiliza una FSM para gestionar los diferentes estados del sistema y el hardware.</p>
+<p>Puedes acceder al código fuente del proyecto en el siguiente enlace: <a href="https://github.com/ieinDieUpm/fsm_automatic_lamp/tree/hal_version">Sistema de iluminación automática con FSM y ADC</a>.</p>
+<p>La configuración HW se muestra en la siguiente imagen:</p>
 <div class="image">
 <img src="fsm_automatic_lamp_bb.png" alt=""/>
 <div class="caption">
@@ -96,16 +98,16 @@ HW iluminación automática</div></div>
 <img src="fsm_automatic_lamp.png" alt=""/>
 <div class="caption">
 FSM iluminación automática</div></div>
-   <p>El sistema toma una medida cada vez que se activa su temporizador. La medida se realiza mediante el periférico ADC. El ADC está configurado para muestrear el sensor LDR en modo único. El temporizador está configurado en el archivo <code>PORT</code> del sistema.</p>
+   <p>El sistema toma una medida cada vez que se activa su temporizador. La medida se realiza mediante el periférico ADC. El ADC está configurado para muestrear el sensor LDR en modo único. El temporizador está configurado en la función <code><a class="el" href="port__automatic__lamp_8h.html#a258f2aa46ea6e35cdb644c35ccdfaadf" title="Initializes the timer of the automatic lamp.">port_automatic_lamp_timer_setup()</a></code>. El temporizador está configurado para interrumpir cada segundo. El temporizador está configurado como indica la siguiente tabla:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Define label </td><td class="markdownTableBodyNone">AUTOMATIC_LAMP_MEASUREMENT_TIMER  </td></tr>
+<td class="markdownTableBodyNone">Define label </td><td class="markdownTableBodyNone">STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Timer </td><td class="markdownTableBodyNone">TIM3  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Interrupt </td><td class="markdownTableBodyNone">TIM3_IRQHandler()  </td></tr>
+<td class="markdownTableBodyNone">Interrupt </td><td class="markdownTableBodyNone">TIM3_IRQHandler  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Time interval </td><td class="markdownTableBodyNone">1 second  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -114,7 +116,6 @@ FSM iluminación automática</div></div>
 <td class="markdownTableBodyNone">Subpriority </td><td class="markdownTableBodyNone">0  </td></tr>
 </table>
 <p>Puede generar tantos sistemas de iluminación como desee creando una nueva FSM y asignando los periféricos correspondientes al sistema. El sistema está implementado en el archivo <code><a class="el" href="main_8c.html" title="Basic FSM reading analog data from an LDR sensor and controlling a LED.">main.c</a></code>.</p>
-<p>Puede acceder al código fuente del proyecto en el siguiente enlace: <a href="https://github.com/ieinDieUpm/fsm_automatic_lamp">Sistema de iluminación automática con FSM y ADC</a>.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Implementación HW</h1>
 <h1><a class="anchor" id="autotoc_md4"></a>
@@ -129,7 +130,7 @@ Circuito LDR</div></div>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">ldr_sensor_lamp  </td></tr>
+<td class="markdownTableBodyNone">Define ID </td><td class="markdownTableBodyNone">PORT_PORT_LDR_SENSOR_LAMP_ID_ID  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone"><b>Por determinar</b> (A1 Nucleo)  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -149,12 +150,12 @@ Circuito LDR</div></div>
 </table>
 <h1><a class="anchor" id="autotoc_md5"></a>
 LEDs</h1>
-<p>Hay 2 LEDs para indicar el estado del sistema. Un <b>LED verde</b> (<code>led_status</code>) se utiliza para indicar que el sistema está funcionando cuando la luz no está encendida. Un <b>LED rojo</b> (<code>led_lamp</code>) que hace las veces de la luz del sistema.</p>
+<p>Hay 2 LEDs para indicar el estado del sistema. Un <b>LED verde</b> (<code>PORT_PORT_LED_STATUS_LAMP_ID_LAMP_ID</code>) se utiliza para indicar que el sistema está funcionando cuando la luz no está encendida. Un <b>LED rojo</b> (<code>PORT_LED_LAMP_ID</code>) que hace las veces de la luz del sistema.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">led_status  </td></tr>
+<td class="markdownTableBodyNone">Define ID </td><td class="markdownTableBodyNone">PORT_LED_STATUS_LAMP_ID  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PA5 (LD2 on Nucleo board)  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -166,7 +167,7 @@ LEDs</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Variable name </td><td class="markdownTableBodyNone">led_lamp  </td></tr>
+<td class="markdownTableBodyNone">Define ID </td><td class="markdownTableBodyNone">PORT_LED_LAMP_ID  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Pin </td><td class="markdownTableBodyNone">PB4 (D5 on Nucleo and shield)  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -178,15 +179,12 @@ LEDs</h1>
 Funcionamiento detallado del sistema</h1>
 <p>El sistema está codificado según el diagrama de estados mostrado anteriormente. El sistema se comporta de la siguiente manera:</p>
 <ul>
-<li>El sistema se inicia en el estado <code>LAMP_OFF</code>. En este estado, el LED <code>led_status</code> está encendido y <code>led_lamp</code> está apagado.</li>
-<li>Cada vez que salta la ISR del temporizador, el sistema llama a <code><a class="el" href="port__system_8h.html#a930f7527b31962044dc8cf0244c68431" title="Start the conversion of the ADC peripheral.">port_system_adc_start_conversion()</a></code> para iniciar una conversión del sensor LDR. La ISR del ADC se activa cuando la conversión se completa (bit <code>EOC</code>). En la ISR del ADC, el sistema llama a <code><a class="el" href="port__ldr__sensor_8h.html#afcfb1bd745fa453a240e131674de1054" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para gestionar el valor del sensor LDR. Esta función guarda el valor de impedancia del sensor LDR en el campo <code>resistance_ohms</code> del <code>ldr_sensor_lamp</code>.</li>
-<li>El sistema comprueba (<code><a class="el" href="fsm__automatic__lamp_8c.html#a7867a8f9e967d5da8d38c324d28158a6" title="Check if the value of impedance of the LDR is low enough to activate the automatic lamp.">check_on()</a></code>) si el valor de impedancia del sensor cruza el umbral establecido en el campo <code>threshold_ldr_ohms</code> de <code>ldr_sensor_lamp</code>. En el <a class="el" href="md_ejercicio.html">ejercicio</a> deberá identificar si el umbral se cruza en el sentido de que el valor de impedancia del sensor LDR es mayor o menor que el umbral.</li>
-<li>Si se cruza el umbral, el sistema cambia al estado <code>LAMP_ON</code>. En este estado, el LED <code>led_lamp</code> se enciende y el LED <code>led_status</code> se apaga.</li>
-<li>De manera análoga, en el estado <code>LAMP_ON</code>, el sistema comprueba (<code><a class="el" href="fsm__automatic__lamp_8c.html#a44c28497a4aab5947a265a7a75314135" title="Check if the value of impedance of the LDR is high enough to deactivate the automatic lamp.">check_off()</a></code>) si el valor de impedancia del sensor LDR cruza el umbral establecido en el campo <code>threshold_ldr_ohms</code> de <code>ldr_sensor_lamp</code>. Si se cruza el umbral, vuelve al estado <code>LAMP_OFF</code>, el LED <code>led_status</code> se enciende y el LED <code>led_lamp</code> se apaga.</li>
+<li>El sistema se inicia en el estado <code>LAMP_OFF</code>. En este estado, el LED <code>PORT_LED_STATUS_LAMP_ID</code> está encendido y <code>PORT_LED_LAMP_ID</code> está apagado.</li>
+<li>Cada vez que salta la ISR del temporizador, su <em>callback</em> (<code><a class="el" href="interr_8c.html#af8a882d847dbd5750599ef2101383ad3" title="Timer period elapsed callback in non blocking mode.">HAL_TIM_PeriodElapsedCallback()</a></code>) llama a <code>HAL_ADC_Start_IT()</code> para iniciar una conversión del sensor LDR. La ISR del ADC se activa cuando la conversión se completa. El <em>callback</em> de conversión de la ISR del ADC (<code><a class="el" href="interr_8c.html#a60ee1b1588393d16b987c1385a3d0d01" title="ADC conversion complete callback.">HAL_ADC_ConvCpltCallback()</a></code>) llama a <code><a class="el" href="port__ldr__sensor_8h.html#a3a3fd02c40a61525ea9ab13c32d5d974" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para gestionar el valor del sensor LDR. Esta función guarda el valor de impedancia del sensor LDR en el campo <code>resistance_ohms</code> del <code>PORT_LDR_SENSOR_LAMP_ID</code>.</li>
+<li>El sistema comprueba (<code><a class="el" href="fsm__automatic__lamp_8c.html#a7867a8f9e967d5da8d38c324d28158a6" title="Check if the value of impedance of the LDR is low enough to activate the automatic lamp.">check_on()</a></code>) si el valor de impedancia del sensor cruza el umbral establecido en el campo <code>threshold_ldr_ohms</code> de <code>PORT_LDR_SENSOR_LAMP_ID</code>. En el <a class="el" href="md_ejercicio.html">ejercicio</a> deberá identificar si el umbral se cruza en el sentido de que el valor de impedancia del sensor LDR es mayor o menor que el umbral.</li>
+<li>Si se cruza el umbral, el sistema cambia al estado <code>LAMP_ON</code>. En este estado, el LED <code>PORT_LED_LAMP_ID</code> se enciende y el LED <code>PORT_LED_STATUS_LAMP_ID</code> se apaga.</li>
+<li>De manera análoga, en el estado <code>LAMP_ON</code>, el sistema comprueba (<code><a class="el" href="fsm__automatic__lamp_8c.html#a44c28497a4aab5947a265a7a75314135" title="Check if the value of impedance of the LDR is high enough to deactivate the automatic lamp.">check_off()</a></code>) si el valor de impedancia del sensor LDR cruza el umbral establecido en el campo <code>threshold_ldr_ohms</code> de <code>PORT_LDR_SENSOR_LAMP_ID</code>. Si se cruza el umbral, vuelve al estado <code>LAMP_OFF</code>, el LED <code>PORT_LED_STATUS_LAMP_ID</code> se enciende y el LED <code>PORT_LED_LAMP_ID</code> se apaga.</li>
 </ul>
-<blockquote class="doxtable">
-<p>[!WARNING] Si desea utilizar la función <code>printf()</code> utilizando el SW debe comentar la línea <code>#define DISABLE_SWO</code> en el archivo <code><a class="el" href="main_8c.html" title="Basic FSM reading analog data from an LDR sensor and controlling a LED.">main.c</a></code>. En este caso, <b>si está utilizando la placa proporcionada por la universidad, el pin <code>PB3</code> estará activo encendiendo el verde del RGB constantemente y no verá el LED rojo puro sino una mezcla con el verde en su lugar.</b> </p>
-</blockquote>
 <p>Mire la siguiente imagen para ver la <em>shield</em> donde se encuentra el LED rojo y el sensor LDR:</p>
 <div class="image">
 <img src="shield.png" alt=""/>

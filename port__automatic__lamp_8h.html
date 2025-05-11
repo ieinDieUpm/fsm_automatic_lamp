@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FSM automatic lamp: port/stm32f4/include/port_automatic_lamp.h File Reference</title>
+<title>FSM automatic lamp: port/include/port_automatic_lamp.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,51 +92,49 @@ $(document).ready(function(){initNavTree('port__automatic__lamp_8h.html',''); in
 
 <p>Header file for the automatic lamp system port layer.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="port__system_8h_source.html">port_system.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 </div>
 <p><a href="port__automatic__lamp_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a7e7ae4ae621a76f40df9be7859a6b150"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__automatic__lamp_8h.html#a7e7ae4ae621a76f40df9be7859a6b150">AUTOMATIC_LAMP_MEASUREMENT_TIMER</a></td></tr>
-<tr class="separator:a7e7ae4ae621a76f40df9be7859a6b150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aad075545baa969012b5f25c6bbf072"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__automatic__lamp_8h.html#a8aad075545baa969012b5f25c6bbf072">PORT_AUTOMATIC_LAMP_ID</a></td></tr>
+<tr class="separator:a8aad075545baa969012b5f25c6bbf072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9e4a16d7a57b3ae90a58d55d82767756"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__automatic__lamp_8h.html#a9e4a16d7a57b3ae90a58d55d82767756">port_automatic_lamp_timer_setup</a> (<a class="el" href="structfsm__automatic__lamp__t.html">fsm_automatic_lamp_t</a> *p_automatic_lamp)</td></tr>
-<tr class="memdesc:a9e4a16d7a57b3ae90a58d55d82767756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the timer of the automatic lamp.  <a href="port__automatic__lamp_8h.html#a9e4a16d7a57b3ae90a58d55d82767756">More...</a><br /></td></tr>
-<tr class="separator:a9e4a16d7a57b3ae90a58d55d82767756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258f2aa46ea6e35cdb644c35ccdfaadf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="port__automatic__lamp_8h.html#a258f2aa46ea6e35cdb644c35ccdfaadf">port_automatic_lamp_timer_setup</a> (uint32_t automatic_lamp_id)</td></tr>
+<tr class="memdesc:a258f2aa46ea6e35cdb644c35ccdfaadf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the timer of the automatic lamp.  <a href="port__automatic__lamp_8h.html#a258f2aa46ea6e35cdb644c35ccdfaadf">More...</a><br /></td></tr>
+<tr class="separator:a258f2aa46ea6e35cdb644c35ccdfaadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for the automatic lamp system port layer. </p>
-<p>Source file for the automatic lamp system port layer.</p>
 <dl class="section author"><dt>Author</dt><dd>Josué Pagán (<a href="#" onclick="location.href='mai'+'lto:'+'j.p'+'ag'+'an@'+'up'+'m.e'+'s'; return false;">j.pag<span style="display: none;">.nosp@m.</span>an@u<span style="display: none;">.nosp@m.</span>pm.es</a>) </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024-05-01 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025-05-01 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="port__automatic__lamp_8h_source.html">port_automatic_lamp.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a7e7ae4ae621a76f40df9be7859a6b150"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e7ae4ae621a76f40df9be7859a6b150">&#9670;&nbsp;</a></span>AUTOMATIC_LAMP_MEASUREMENT_TIMER</h2>
+<a id="a8aad075545baa969012b5f25c6bbf072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aad075545baa969012b5f25c6bbf072">&#9670;&nbsp;</a></span>PORT_AUTOMATIC_LAMP_ID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AUTOMATIC_LAMP_MEASUREMENT_TIMER</td>
+          <td class="memname">#define PORT_AUTOMATIC_LAMP_ID</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Timer to measure the LDR </p>
+<p>Thermostat identifier </p>
 
-<p class="definition">Definition at line <a class="el" href="port__automatic__lamp_8h_source.html#l00022">22</a> of file <a class="el" href="port__automatic__lamp_8h_source.html">port_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="port__automatic__lamp_8h_source.html#l00018">18</a> of file <a class="el" href="port__automatic__lamp_8h_source.html">port_automatic_lamp.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a9e4a16d7a57b3ae90a58d55d82767756"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e4a16d7a57b3ae90a58d55d82767756">&#9670;&nbsp;</a></span>port_automatic_lamp_timer_setup()</h2>
+<a id="a258f2aa46ea6e35cdb644c35ccdfaadf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258f2aa46ea6e35cdb644c35ccdfaadf">&#9670;&nbsp;</a></span>port_automatic_lamp_timer_setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,8 +142,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void port_automatic_lamp_timer_setup </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__automatic__lamp__t.html">fsm_automatic_lamp_t</a> *&#160;</td>
-          <td class="paramname"><em>p_automatic_lamp</em></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>automatic_lamp_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -154,12 +152,12 @@ Functions</h2></td></tr>
 <p>Initializes the timer of the automatic lamp. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_automatic_lamp</td><td>Pointer to the automatic lamp structure. </td></tr>
+    <tr><td class="paramname">automatic_lamp_id</td><td>Automatic lamp ID. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="port__automatic__lamp_8c_source.html#l00019">19</a> of file <a class="el" href="port__automatic__lamp_8c_source.html">port_automatic_lamp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stm32f4__automatic__lamp_8c_source.html#l00051">51</a> of file <a class="el" href="stm32f4__automatic__lamp_8c_source.html">stm32f4_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
@@ -168,7 +166,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_aff93352f483d815f4aad2ce8569e33b.html">stm32f4</a></li><li class="navelem"><a class="el" href="dir_8338216af5b9c682f75cf365d3e92719.html">include</a></li><li class="navelem"><a class="el" href="port__automatic__lamp_8h.html">port_automatic_lamp.h</a></li>
+    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_3b4aa3705552218a151a51dac694657d.html">include</a></li><li class="navelem"><a class="el" href="port__automatic__lamp_8h.html">port_automatic_lamp.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

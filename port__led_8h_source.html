@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FSM automatic lamp: port/stm32f4/include/port_led.h Source File</title>
+<title>FSM automatic lamp: port/include/port_led.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,57 +92,34 @@ $(document).ready(function(){initNavTree('port__led_8h_source.html',''); initRes
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Includes ------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* Standard C includes */</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/* HW dependent includes */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="port__system_8h.html">port_system.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* Defines and macros --------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// HW Nucleo-STM32F446RE:</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="port__led_8h.html#a4ed7b3c5ae172a271eb85d80e0337b2e">   19</a></span>&#160;<span class="preprocessor">#define LED_LAMP_GPIO GPIOB   </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="port__led_8h.html#adb16b487fed40ff121d698563a249d40">   20</a></span>&#160;<span class="preprocessor">#define LED_LAMP_PIN 4        </span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="port__led_8h.html#ae8140c4e2ee1fc1bf214a08473fefc0b">   21</a></span>&#160;<span class="preprocessor">#define LED_STATUS_GPIO GPIOA </span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="port__led_8h.html#aa42b43d66e323049489072884d0a2ee6">   22</a></span>&#160;<span class="preprocessor">#define LED_STATUS_PIN 5      </span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="comment">/* Typedefs --------------------------------------------------------------------*/</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structport__led__hw__t.html">   28</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structport__led__hw__t.html#ad1f826989eb7b18afae2ca8059339113">   30</a></span>&#160;    GPIO_TypeDef *<a class="code" href="structport__led__hw__t.html#ad1f826989eb7b18afae2ca8059339113">p_port</a>; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structport__led__hw__t.html#ac51dd0e5bdf84a3dff8b2244fb58b665">   31</a></span>&#160;    uint8_t <a class="code" href="structport__led__hw__t.html#ac51dd0e5bdf84a3dff8b2244fb58b665">pin</a>;          </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <a class="code" href="structport__led__hw__t.html">port_led_hw_t</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/* Global variables -----------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">extern</span> <a class="code" href="structport__led__hw__t.html">port_led_hw_t</a> <a class="code" href="port__led_8h.html#ae2b7f7df216a8d6a74e7f1be7e42f8c3">led_lamp</a>;   </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">extern</span> <a class="code" href="structport__led__hw__t.html">port_led_hw_t</a> <a class="code" href="port__led_8h.html#a1a98127c78dde428e7a276fb930942a9">led_status</a>; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/* Function prototypes and explanations ---------------------------------------*/</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="port__led_8h.html#a39c0517c92dd91171bb4d598879578f0">port_led_init</a>(<a class="code" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/* Defines and macros --------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/* Defines */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="port__led_8h.html#a9a3b1bc5b715ef1894427860a8634ddd">   17</a></span>&#160;<span class="preprocessor">#define PORT_LED_LAMP_ID 0    </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="port__led_8h.html#a8b7a820b6aa019cdac9db23286e41f94">   18</a></span>&#160;<span class="preprocessor">#define PORT_LED_STATUS_ID 1  </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="comment">/* Function prototypes and explanations ---------------------------------------*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="port__led_8h.html#a0cc255d224b21c011f75ce1a3ea96885">port_led_init</a>(uint32_t led_id);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="port__led_8h.html#a216044cfec61d9b3094cf67b44ac2251">port_led_get_value</a>(uint32_t led_id);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="port__led_8h.html#aa23aa23cf4a80027806eeb482ea5f27f">port_led_set_value</a>(uint32_t led_id, <span class="keywordtype">bool</span> value);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="port__led_8h.html#a0176532a14d96c7c5865aa2afe224804">port_led_get_status</a>(<a class="code" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> <a class="code" href="port__led_8h.html#a50c7aeedc7b0e9e07e8af07d6a630a1f">port_led_toggle</a>(uint32_t led_id);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">void</span> <a class="code" href="port__led_8h.html#a716667ed18bac66a8d7cd892513e7549">port_led_on</a>(<a class="code" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="port__led_8h.html#a11263e3bf9dd4816b51abbab10af4213">port_led_off</a>(<a class="code" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> <a class="code" href="port__led_8h.html#ae4e509e4af3c212b68759f723b0eb643">port_led_toggle</a>(<a class="code" href="structport__led__hw__t.html">port_led_hw_t</a> *p_led);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif // PORT_LED_H_</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // PORT_LED_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aport__led_8h_html_a39c0517c92dd91171bb4d598879578f0"><div class="ttname"><a href="port__led_8h.html#a39c0517c92dd91171bb4d598879578f0">port_led_init</a></div><div class="ttdeci">void port_led_init(port_led_hw_t *p_led)</div><div class="ttdoc">Initializes the LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00040">port_led.c:40</a></div></div>
-<div class="ttc" id="astructport__led__hw__t_html"><div class="ttname"><a href="structport__led__hw__t.html">port_led_hw_t</a></div><div class="ttdoc">Structure to define the HW dependencies of a LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8h_source.html#l00028">port_led.h:28</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a11263e3bf9dd4816b51abbab10af4213"><div class="ttname"><a href="port__led_8h.html#a11263e3bf9dd4816b51abbab10af4213">port_led_off</a></div><div class="ttdeci">void port_led_off(port_led_hw_t *p_led)</div><div class="ttdoc">Turn off the LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00030">port_led.c:30</a></div></div>
-<div class="ttc" id="astructport__led__hw__t_html_ac51dd0e5bdf84a3dff8b2244fb58b665"><div class="ttname"><a href="structport__led__hw__t.html#ac51dd0e5bdf84a3dff8b2244fb58b665">port_led_hw_t::pin</a></div><div class="ttdeci">uint8_t pin</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8h_source.html#l00031">port_led.h:31</a></div></div>
-<div class="ttc" id="astructport__led__hw__t_html_ad1f826989eb7b18afae2ca8059339113"><div class="ttname"><a href="structport__led__hw__t.html#ad1f826989eb7b18afae2ca8059339113">port_led_hw_t::p_port</a></div><div class="ttdeci">GPIO_TypeDef * p_port</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8h_source.html#l00030">port_led.h:30</a></div></div>
-<div class="ttc" id="aport__system_8h_html"><div class="ttname"><a href="port__system_8h.html">port_system.h</a></div><div class="ttdoc">Header for port_system.c file.</div></div>
-<div class="ttc" id="aport__led_8h_html_ae2b7f7df216a8d6a74e7f1be7e42f8c3"><div class="ttname"><a href="port__led_8h.html#ae2b7f7df216a8d6a74e7f1be7e42f8c3">led_lamp</a></div><div class="ttdeci">port_led_hw_t led_lamp</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00017">port_led.c:17</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a1a98127c78dde428e7a276fb930942a9"><div class="ttname"><a href="port__led_8h.html#a1a98127c78dde428e7a276fb930942a9">led_status</a></div><div class="ttdeci">port_led_hw_t led_status</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00018">port_led.c:18</a></div></div>
-<div class="ttc" id="aport__led_8h_html_ae4e509e4af3c212b68759f723b0eb643"><div class="ttname"><a href="port__led_8h.html#ae4e509e4af3c212b68759f723b0eb643">port_led_toggle</a></div><div class="ttdeci">void port_led_toggle(port_led_hw_t *p_led)</div><div class="ttdoc">Toggles the LED state.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00035">port_led.c:35</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a716667ed18bac66a8d7cd892513e7549"><div class="ttname"><a href="port__led_8h.html#a716667ed18bac66a8d7cd892513e7549">port_led_on</a></div><div class="ttdeci">void port_led_on(port_led_hw_t *p_led)</div><div class="ttdoc">Turn on the LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00025">port_led.c:25</a></div></div>
-<div class="ttc" id="aport__led_8h_html_a0176532a14d96c7c5865aa2afe224804"><div class="ttname"><a href="port__led_8h.html#a0176532a14d96c7c5865aa2afe224804">port_led_get_status</a></div><div class="ttdeci">bool port_led_get_status(port_led_hw_t *p_led)</div><div class="ttdoc">Returns the current state of the LED.</div><div class="ttdef"><b>Definition:</b> <a href="port__led_8c_source.html#l00020">port_led.c:20</a></div></div>
+<div class="ttc" id="aport__led_8h_html_aa23aa23cf4a80027806eeb482ea5f27f"><div class="ttname"><a href="port__led_8h.html#aa23aa23cf4a80027806eeb482ea5f27f">port_led_set_value</a></div><div class="ttdeci">void port_led_set_value(uint32_t led_id, bool value)</div><div class="ttdoc">Set the value of the GPIO connected to the LED.</div><div class="ttdef"><b>Definition:</b> <a href="stm32f4__led_8c_source.html#l00100">stm32f4_led.c:100</a></div></div>
+<div class="ttc" id="aport__led_8h_html_a0cc255d224b21c011f75ce1a3ea96885"><div class="ttname"><a href="port__led_8h.html#a0cc255d224b21c011f75ce1a3ea96885">port_led_init</a></div><div class="ttdeci">void port_led_init(uint32_t led_id)</div><div class="ttdoc">Configure the HW specifications of a given LED.</div><div class="ttdef"><b>Definition:</b> <a href="stm32f4__led_8c_source.html#l00048">stm32f4_led.c:48</a></div></div>
+<div class="ttc" id="aport__led_8h_html_a216044cfec61d9b3094cf67b44ac2251"><div class="ttname"><a href="port__led_8h.html#a216044cfec61d9b3094cf67b44ac2251">port_led_get_value</a></div><div class="ttdeci">bool port_led_get_value(uint32_t led_id)</div><div class="ttdoc">Get the value of the GPIO connected to the LED.</div><div class="ttdef"><b>Definition:</b> <a href="stm32f4__led_8c_source.html#l00087">stm32f4_led.c:87</a></div></div>
+<div class="ttc" id="aport__led_8h_html_a50c7aeedc7b0e9e07e8af07d6a630a1f"><div class="ttname"><a href="port__led_8h.html#a50c7aeedc7b0e9e07e8af07d6a630a1f">port_led_toggle</a></div><div class="ttdeci">void port_led_toggle(uint32_t led_id)</div><div class="ttdoc">Toggles the LED state.</div><div class="ttdef"><b>Definition:</b> <a href="stm32f4__led_8c_source.html#l00114">stm32f4_led.c:114</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_aff93352f483d815f4aad2ce8569e33b.html">stm32f4</a></li><li class="navelem"><a class="el" href="dir_8338216af5b9c682f75cf365d3e92719.html">include</a></li><li class="navelem"><a class="el" href="port__led_8h.html">port_led.h</a></li>
+    <li class="navelem"><a class="el" href="dir_651562d8bf6cfd3e81eff5b570d7df50.html">port</a></li><li class="navelem"><a class="el" href="dir_3b4aa3705552218a151a51dac694657d.html">include</a></li><li class="navelem"><a class="el" href="port__led_8h.html">port_led.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

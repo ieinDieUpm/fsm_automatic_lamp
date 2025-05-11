@@ -1,5 +1,19 @@
 var searchData=
 [
-  ['r_5fpulldown_5fohms_242',['R_PULLDOWN_OHMS',['../port__ldr__sensor_8h.html#a1948ed746fde82faefd31ad68c99136c',1,'port_ldr_sensor.h']]],
-  ['rcc_5fhsi_5fcalibration_5fdefault_243',['RCC_HSI_CALIBRATION_DEFAULT',['../port__system_8h.html#a2493eaca64054f112ecca77da42783bc',1,'port_system.h']]]
+  ['stm32f4_5fautomatic_5flamp_5fmeasurement_5ftimer_287',['STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER',['../stm32f4__automatic__lamp_8h.html#a732c45725c522d954e022636454ff03a',1,'stm32f4_automatic_lamp.h']]],
+  ['stm32f4_5fautomatic_5flamp_5fmeasurement_5ftimer_5firq_288',['STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER_IRQ',['../stm32f4__automatic__lamp_8h.html#abb65305872ff4439fc6b5fb940a7b5a7',1,'stm32f4_automatic_lamp.h']]],
+  ['stm32f4_5fautomatic_5flamp_5fmeasurement_5ftimer_5firq_5fprio_289',['STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER_IRQ_PRIO',['../stm32f4__automatic__lamp_8h.html#a10a36bbd7dcad56ec86bbf3396aa4ebc',1,'stm32f4_automatic_lamp.h']]],
+  ['stm32f4_5fautomatic_5flamp_5fmeasurement_5ftimer_5firq_5fsubprio_290',['STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER_IRQ_SUBPRIO',['../stm32f4__automatic__lamp_8h.html#aa10e2950e3ac00b56adb6f975ea69e96',1,'stm32f4_automatic_lamp.h']]],
+  ['stm32f4_5fautomatic_5flamp_5fmeasurement_5ftimer_5fperiod_5fms_291',['STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER_PERIOD_MS',['../stm32f4__automatic__lamp_8h.html#a3d552410424b8b5869dbf94bd260ca9a',1,'stm32f4_automatic_lamp.h']]],
+  ['stm32f4_5fldr_5fsensor_5flamp_5fadc_292',['STM32F4_LDR_SENSOR_LAMP_ADC',['../stm32f4__ldr__sensor_8h.html#afecfc03af0d5c709ffaafedc70d7ec31',1,'stm32f4_ldr_sensor.h']]],
+  ['stm32f4_5fldr_5fsensor_5flamp_5fadc_5fchannel_293',['STM32F4_LDR_SENSOR_LAMP_ADC_CHANNEL',['../stm32f4__ldr__sensor_8h.html#a022a607e1b3349a9e0b81b262ff10305',1,'stm32f4_ldr_sensor.h']]],
+  ['stm32f4_5fldr_5fsensor_5flamp_5fadc_5firq_294',['STM32F4_LDR_SENSOR_LAMP_ADC_IRQ',['../stm32f4__ldr__sensor_8h.html#adf2e97f17cbc6927a86390be72b2f206',1,'stm32f4_ldr_sensor.h']]],
+  ['stm32f4_5fldr_5fsensor_5flamp_5fadc_5firq_5fprio_295',['STM32F4_LDR_SENSOR_LAMP_ADC_IRQ_PRIO',['../stm32f4__ldr__sensor_8h.html#ad76c7393ad0134caeab669da2d782fcc',1,'stm32f4_ldr_sensor.h']]],
+  ['stm32f4_5fldr_5fsensor_5flamp_5fadc_5firq_5fsubprio_296',['STM32F4_LDR_SENSOR_LAMP_ADC_IRQ_SUBPRIO',['../stm32f4__ldr__sensor_8h.html#abf4d631f59c9b120991887a68094c99f',1,'stm32f4_ldr_sensor.h']]],
+  ['stm32f4_5fldr_5fsensor_5flamp_5fgpio_5fpin_297',['STM32F4_LDR_SENSOR_LAMP_GPIO_PIN',['../stm32f4__ldr__sensor_8h.html#a2a6595fb9f6a2a761b61d47f517e3fac',1,'stm32f4_ldr_sensor.h']]],
+  ['stm32f4_5fldr_5fsensor_5flamp_5fgpio_5fport_298',['STM32F4_LDR_SENSOR_LAMP_GPIO_PORT',['../stm32f4__ldr__sensor_8h.html#a27bd38367700bbecb6b1c87d5a469aca',1,'stm32f4_ldr_sensor.h']]],
+  ['stm32f4_5fled_5flamp_5fgpio_5fpin_299',['STM32F4_LED_LAMP_GPIO_PIN',['../stm32f4__led_8h.html#a52610d3e287e8e0f2fbfed726dc2c489',1,'stm32f4_led.h']]],
+  ['stm32f4_5fled_5flamp_5fgpio_5fport_300',['STM32F4_LED_LAMP_GPIO_PORT',['../stm32f4__led_8h.html#a367ccbc7f355828db4c4a59cb97d1eb1',1,'stm32f4_led.h']]],
+  ['stm32f4_5fled_5fstatus_5fgpio_5fpin_301',['STM32F4_LED_STATUS_GPIO_PIN',['../stm32f4__led_8h.html#aab242362d1a67f198dc6bd768bb7220b',1,'stm32f4_led.h']]],
+  ['stm32f4_5fled_5fstatus_5fgpio_5fport_302',['STM32F4_LED_STATUS_GPIO_PORT',['../stm32f4__led_8h.html#a54a5e39014e80e8baa8056f17984ecd0',1,'stm32f4_led.h']]]
 ];

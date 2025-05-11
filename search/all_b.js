@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main_63',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.c']]],
-  ['main_2ec_64',['main.c',['../main_8c.html',1,'']]],
-  ['msticks_65',['msTicks',['../port__system_8c.html#a0a6e5e17fcb15f3922e278025acabfa2',1,'port_system.c']]]
+  ['resistance_5fohms_108',['resistance_ohms',['../structstm32f4__ldr__hw__t.html#aef250a916607731fed4e87deab27e077',1,'stm32f4_ldr_hw_t']]],
+  ['resolution_5f12_5fbit_109',['RESOLUTION_12_BIT',['../stm32f4__ldr__sensor_8c.html#aab3739df9afa9f75e8dc714bd8095012',1,'stm32f4_ldr_sensor.c']]]
 ];

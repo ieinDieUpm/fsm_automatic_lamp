@@ -87,36 +87,44 @@ $(document).ready(function(){initNavTree('md_ejercicio.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><b>En este ejercicio se trata de emular el comportamiento del sistema de iluminación automática, como el que puede haber en las farolas de las calles. Este sistema controla: sensor LDR y 2 LEDs. Uno de de indicación de funcionamiento y otro que es la propia luz de iluminación.</b></p>
-<p>Puede ayudarse del ejemplo del termostato visto en clase: <a href="https://ieindieupm.github.io/fsm_thermostat/">Ejemplo de termostato</a>.</p>
+<p><b>Ayúdese del ejemplo del termostato visto en clase</b>: <a href="https://github.com/ieinDieUpm/fsm_thermostat/tree/hal_version">Ejemplo de termostato</a>, pues es análogo.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Preguntas</h1>
 <p><b>1. El programa no compila por diversos motivos. Se le pide que complete el código para hacerlo funcionar. En concreto:</b></p>
 <ul>
 <li>Ajuste los <code>#define</code> para los puertos y pines del sensor LDR, según se indica en las tablas del <a href="index.html">enunciado</a>.<ul>
-<li>Solo se le dice que está conectado al pin analógico **<code>A1</code>** de la Nucleo (y de la <em>shield</em>). Puede saber qué GPIO y pin es mirando en (i) en el esquema proporcionado de la <em>shield</em> en el <a href="index.html">enunciado</a>, o (ii) en la <code>Figure 25. NUCLEO-F446RE</code> del <a href="https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf"><code>User Manual</code></a>, o tabla 19 del mismo documento.</li>
+<li>Solo se le dice que está conectado al pin analógico <b>A1</b> de la Nucleo (y de la <em>shield</em>). Puede saber qué GPIO y pin es mirando en (i) en el esquema proporcionado de la <em>shield</em> en el <a href="index.html">enunciado</a>, o (ii) en la <code>Figure 25. NUCLEO-F446RE</code> del <a href="https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf">User Manual</a>, o tabla 19 del mismo documento.</li>
 <li><b>Una vez sepa la GPIO y el pin</b>, para saber <b>qué ADC y canal del ADC</b> utilizar para el sensor LDR, puede (i) buscar el pin en la <code>Table 10. STM32F446xx pin and ball descriptions</code> del <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">datasheet</a>,o en la misma <a href="https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf"><code>Table 19. ARDUINO® connectors on NUCLEO-F446RE</code></a> del <em>User Manual</em>.</li>
-<li>Para saber qué impedancia de <code>R_PULLDOWN_OHMS</code> poner, mire el circuito del sensor LDR en la <em>shield</em> proporcionado en el <a href="index.html">enunciado</a>.</li>
-<li>Asigne un valor a la macro <code>AUTOMATIC_LAMP_MEASUREMENT_TIMER</code> para que sepa qué temporizador está utilizando el sistema, según se indica en las tablas del <a href="index.html">enunciado</a>.</li>
+<li>Para saber qué impedancia de pull-down <code>PORT_LDR_SENSOR_LAMP_PULLDOWN_OHMS</code> poner, mire el circuito del sensor LDR en la <em>shield</em> proporcionado en el <a href="index.html">enunciado</a>.</li>
+<li>Asigne un valor a la macro <code>STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER</code> para asignar el temporizador que está utilizando el sistema según se indica en las tablas del <a href="index.html">enunciado</a>. Complete también los <code>#define</code> que falten.</li>
 </ul>
 </li>
-<li>En <code><a class="el" href="port__ldr__sensor_8c.html" title="Port layer for a LDR sensor.">port_ldr_sensor.c</a></code>:<ul>
-<li>Inicialice todos los campos de la estructura <code>ldr_sensor_lamp</code>.</li>
-<li>Complete la función <code><a class="el" href="port__ldr__sensor_8h.html#afcfb1bd745fa453a240e131674de1054" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para que convierta el valor de la conversión del ADC en impedancia del sensor LDR y lo guarde en el campo <code>resistance_ohms</code> de la estructura <code>ldr_sensor_lamp</code>.</li>
+<li>En <code><a class="el" href="stm32f4__ldr__sensor_8c.html" title="Port layer for a LDR sensor.">stm32f4_ldr_sensor.c</a></code>:<ul>
+<li>Inicialice todos los campos de la estructura <code><a class="el" href="structstm32f4__ldr__hw__t.html" title="Structure to define the HW dependencies of a LDR sensor.">stm32f4_ldr_hw_t</a></code> del sensor LDR <code>PORT_LDR_SENSOR_LAMP_ID</code>.</li>
+<li>Complete la función <code><a class="el" href="port__ldr__sensor_8h.html#a3a3fd02c40a61525ea9ab13c32d5d974" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para que convierta el valor de la conversión del ADC en impedancia del sensor LDR y lo guarde en el campo <code>resistance_ohms</code> de la estructura <code><a class="el" href="structstm32f4__ldr__hw__t.html" title="Structure to define the HW dependencies of a LDR sensor.">stm32f4_ldr_hw_t</a></code> del sensor LDR <code>PORT_LDR_SENSOR_LAMP_ID</code>.</li>
 </ul>
 </li>
 </ul>
 <blockquote class="doxtable">
-<p>[!TIP] Use la macro <code>ADC_VREF_MV</code>, la función <code><a class="el" href="port__ldr__sensor_8c.html#a192286408ad94029f27fbd7cff4d7d26" title="Converts an ADC value to millivolts.">_adc_to_mvolts()</a></code> con una resolución de 12 bits y la resistencia de <code>R_PULLDOWN_OHMS</code> para hacer la conversión. <b>Debe despejar la ecuación de la impedancia del sensor LDR del circuito divisor de tensión.</b> </p>
+<p>[!TIP] Use la macro <code>VDD_VALUE</code>, la función <code><a class="el" href="stm32f4__ldr__sensor_8c.html#a192286408ad94029f27fbd7cff4d7d26" title="Converts an ADC value to millivolts.">_adc_to_mvolts()</a></code> con una resolución de 12 bits y la resistencia de <code>PORT_LDR_SENSOR_LAMP_PULLDOWN_OHMS</code> para hacer la conversión. <b>Debe despejar la ecuación de la impedancia del sensor LDR del circuito divisor de tensión.</b> </p>
 </blockquote>
 <ul>
-<li>En <code><a class="el" href="fsm__automatic__lamp_8c.html" title="Finite State Machine for an automatic lamp.">fsm_automatic_lamp.c</a></code> complete la función <code><a class="el" href="fsm__automatic__lamp_8c.html#a7867a8f9e967d5da8d38c324d28158a6" title="Check if the value of impedance of the LDR is low enough to activate the automatic lamp.">check_on()</a></code>. Debe devolver <code>true</code> para que se encienda la luz de la farola (<code>led_lamp</code>), y <code>false</code> en caso contrario. Identifique si el umbral se cruza en el sentido de que el valor de impedancia del sensor LDR es mayor o menor que el umbral. Use el umbral definido en la FSM <code>p_fsm-&gt;threshold_ldr_ohms</code>, y el valor de impedancia devuelto por la función <code><a class="el" href="port__ldr__sensor_8h.html#aa14a7629407f4921965d346196f7beea" title="Gets the LDR in Ohms of the LDR sensor.">port_ldr_sensor_get_resistance()</a></code>.</li>
+<li>En <code><a class="el" href="fsm__automatic__lamp_8c.html" title="Finite State Machine for an automatic lamp.">fsm_automatic_lamp.c</a></code> complete la función <code><a class="el" href="fsm__automatic__lamp_8c.html#a7867a8f9e967d5da8d38c324d28158a6" title="Check if the value of impedance of the LDR is low enough to activate the automatic lamp.">check_on()</a></code>. Debe devolver <code>true</code> para que se encienda la luz de la farola (<code>PORT_LED_LAMP_ID</code>), y <code>false</code> en caso contrario. Identifique si el umbral se cruza en el sentido de que el valor de impedancia del sensor LDR es mayor o menor que el umbral. Use el umbral definido en la FSM <code>p_fsm-&gt;threshold_ldr_ohms</code>, y el valor de impedancia devuelto por la función <code><a class="el" href="port__ldr__sensor_8h.html#a7bc4d73670c5c2c08ccd24b0b350bac9" title="Gets the LDR in Ohms of the LDR sensor.">port_ldr_sensor_get_resistance()</a></code>.</li>
 <li>En <code><a class="el" href="interr_8c.html" title="Interrupt service routines for the STM32F4 platform.">interr.c</a></code> añada la ISR del temporizador <code>x</code> seleccionado (<code>TIMx_IRQHandler</code>) para que cuando se active:<ul>
-<li>Llame a la función <code><a class="el" href="port__system_8h.html#a930f7527b31962044dc8cf0244c68431" title="Start the conversion of the ADC peripheral.">port_system_adc_start_conversion()</a></code> para iniciar una conversión del sensor LDR con los parámetros adecuados.</li>
-<li>Limpie el bit de interrupción <code>UIF</code> del registro <code>SR</code> del temporizador.</li>
+<li>Coja el handler del temporizador <code>TIMx</code> usando la función <code><a class="el" href="stm32f4__automatic__lamp_8h.html#abc2235657bcf1fc0272dbd2e10287537" title="Get the timer handler of the automatic lamp.">stm32f4_get_automatic_lamp_timer_handler()</a></code>.</li>
+<li>Llame a la función <code>HAL_TIM_IRQHandler()</code> pasándole el handler del temporizador para que limpie el bit de interrupción del temporizador y salte a la función de callback <code><a class="el" href="interr_8c.html#af8a882d847dbd5750599ef2101383ad3" title="Timer period elapsed callback in non blocking mode.">HAL_TIM_PeriodElapsedCallback()</a></code>.</li>
 </ul>
 </li>
-<li>En <code><a class="el" href="interr_8c.html" title="Interrupt service routines for the STM32F4 platform.">interr.c</a></code>, complete la ISR del ADC para que cuando finalice la conversión:<ul>
-<li>Llame a la función <code><a class="el" href="port__ldr__sensor_8h.html#afcfb1bd745fa453a240e131674de1054" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para guarde el valor de impedancia del sensor LDR. Hay uqe pasarle la dirección de memoria de la estructura <code>ldr_sensor_lamp</code> y el valor de la conversión que está en el registro <code>DR</code> del ADC. Use el campo <code>p_adc</code> de la estructura <code>ldr_sensor_lamp</code> leer dicho valor y no el nombre del ADC directamente, para que sea un código más genérico.</li>
+<li>En el mismo fichero, complete la función <code><a class="el" href="interr_8c.html#af8a882d847dbd5750599ef2101383ad3" title="Timer period elapsed callback in non blocking mode.">HAL_TIM_PeriodElapsedCallback()</a></code> para que:<ul>
+<li>Recupere el handler del ADC usando la función <code>stm32f4_get_automatic_lamp_adc_handler()</code>.</li>
+<li>Llame a la función <code>HAL_ADC_Start_IT()</code> pasándole el handler del ADC para que inicie una conversión del sensor LDR.</li>
+</ul>
+</li>
+<li>En <code><a class="el" href="interr_8c.html" title="Interrupt service routines for the STM32F4 platform.">interr.c</a></code>, complete la función de callback del ADC <code>HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef()</code> para que cuando finalice la conversión:<ul>
+<li>Lea el valor de la conversión del ADC usando la función <code>HAL_ADC_GetValue()</code>.</li>
+<li>Lo imprima por pantalla usando la función <code>printf()</code>. <br  />
+</li>
+<li>Llame a la función <code><a class="el" href="port__ldr__sensor_8h.html#a3a3fd02c40a61525ea9ab13c32d5d974" title="Saves the ADC value of the LDR sensor and converts it to Ohms.">port_ldr_sensor_save_adc_value()</a></code> para guarde el valor de impedancia del sensor LDR.</li>
 </ul>
 </li>
 </ul>
@@ -124,10 +132,10 @@ Preguntas</h1>
 <p>En particular, compruebe que funciona en las siguientes situaciones:</p>
 <ul>
 <li><p class="startli"><b>Situación 1:</b></p>
-<p class="startli">Compruebe que la iluminación (<code>led_lamp</code>) se enciende cuando la luz es baja. Para ello, tape el sensor LDR con un objeto opaco. En este caso, el LED des estado (<code>led_status</code>) se deberá apagar. Tenga cuidado de no tocar directamente el sensor LDR con los dedos, ya que la grasa de la piel puede afectar a la lectura del sensor.</p>
+<p class="startli">Compruebe que el LED de iluminación (<code>PORT_LED_LAMP_ID</code>) se enciende cuando la luz es baja. Para ello, tape el sensor LDR con un objeto opaco. En este caso, el LED des estado (<code>PORT_LED_STATUS_ID</code>) se deberá apagar. Tenga cuidado de no tocar directamente el sensor LDR con los dedos, ya que la grasa de la piel puede afectar a la lectura del sensor.</p>
 </li>
 <li><p class="startli"><b>Situación 2:</b></p>
-<p class="startli">Compruebe que la iluminación (<code>led_lamp</code>) se apaga cuando la luz es alta. Para ello, destape el sensor LDR. En este caso, el LED des estado (<code>led_status</code>) se deberá encender. Si no fuese suficiente con la luz natural, puede usar la linterna del móvil para iluminar directamente el sensor LDR. </p>
+<p class="startli">Compruebe que la iluminación (<code>PORT_LED_LAMP_ID</code>) se apaga cuando la luz es alta. Para ello, destape el sensor LDR. En este caso, el LED des estado (<code>PORT_LED_STATUS_ID</code>) se deberá encender. Si no fuese suficiente con la luz natural, puede usar la linterna del móvil para iluminar directamente el sensor LDR. </p>
 </li>
 </ul>
 </div></div><!-- contents -->

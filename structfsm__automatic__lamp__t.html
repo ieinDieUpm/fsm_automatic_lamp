@@ -91,19 +91,17 @@ $(document).ready(function(){initNavTree('structfsm__automatic__lamp__t.html',''
 
 <p>Structure to define the automatic lamp FSM.  
  <a href="structfsm__automatic__lamp__t.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a8287594f3f7be37becc6005d18a213fd"><td class="memItemLeft" align="right" valign="top">fsm_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#a8287594f3f7be37becc6005d18a213fd">f</a></td></tr>
 <tr class="separator:a8287594f3f7be37becc6005d18a213fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3bb151c558d08c7c4fcbde8bffd36e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#af3bb151c558d08c7c4fcbde8bffd36e4">p_led_lamp</a></td></tr>
-<tr class="separator:af3bb151c558d08c7c4fcbde8bffd36e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e2ea87bec9ea4e2e0dbc9d33fcc605"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#a25e2ea87bec9ea4e2e0dbc9d33fcc605">p_led_status</a></td></tr>
-<tr class="separator:a25e2ea87bec9ea4e2e0dbc9d33fcc605"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5900fd7e9fea8ed14603856c6d407f0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structport__ldr__hw__t.html">port_ldr_hw_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#a5900fd7e9fea8ed14603856c6d407f0a">p_ldr_sensor</a></td></tr>
-<tr class="separator:a5900fd7e9fea8ed14603856c6d407f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a995ceb90894ab43d5e382992b07bfe84"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#a995ceb90894ab43d5e382992b07bfe84">led_lamp_id</a></td></tr>
+<tr class="separator:a995ceb90894ab43d5e382992b07bfe84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff0bc8140092b52623311d7cecd300b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#abff0bc8140092b52623311d7cecd300b">led_status_id</a></td></tr>
+<tr class="separator:abff0bc8140092b52623311d7cecd300b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91494464def4e6e008c86646f2520af"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#aa91494464def4e6e008c86646f2520af">ldr_sensor_id</a></td></tr>
+<tr class="separator:aa91494464def4e6e008c86646f2520af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83789c8ba0c2fe38a6064d900f4c47f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#a83789c8ba0c2fe38a6064d900f4c47f1">last_events</a> [<a class="el" href="fsm__automatic__lamp_8h.html#a1671f26b6cd31b7d6e66b283ea7d17d0">AUTOMATIC_LAMP_HISTORY</a>]</td></tr>
 <tr class="separator:a83789c8ba0c2fe38a6064d900f4c47f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0ad7c9fd0e0aa4a86060bfeccb25eee"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#aa0ad7c9fd0e0aa4a86060bfeccb25eee">last_time_events</a> [<a class="el" href="fsm__automatic__lamp_8h.html#a1671f26b6cd31b7d6e66b283ea7d17d0">AUTOMATIC_LAMP_HISTORY</a>]</td></tr>
@@ -112,13 +110,11 @@ Data Fields</h2></td></tr>
 <tr class="separator:a67a4739d35c8d5c86d5c6380c1e43ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07356ad779842f415755bd05ac51e469"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#a07356ad779842f415755bd05ac51e469">threshold_ldr_ohms</a></td></tr>
 <tr class="separator:a07356ad779842f415755bd05ac51e469"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fef4189e6f672d06feee8fd30aeae84"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__automatic__lamp__t.html#a6fef4189e6f672d06feee8fd30aeae84">timer_period_sec</a></td></tr>
-<tr class="separator:a6fef4189e6f672d06feee8fd30aeae84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure to define the automatic lamp FSM. </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00053">53</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00024">24</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a67a4739d35c8d5c86d5c6380c1e43ff1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67a4739d35c8d5c86d5c6380c1e43ff1">&#9670;&nbsp;</a></span>event_idx</h2>
@@ -133,7 +129,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Index of the last event </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00061">61</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00032">32</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
@@ -150,7 +146,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>FSM structure. Important to be the first element of the structure </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00055">55</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00026">26</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
@@ -167,7 +163,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Statuses of the automatic lamp </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00059">59</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00030">30</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
@@ -184,58 +180,58 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Last times of events detected </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00060">60</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00031">31</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
-<a id="a5900fd7e9fea8ed14603856c6d407f0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5900fd7e9fea8ed14603856c6d407f0a">&#9670;&nbsp;</a></span>p_ldr_sensor</h2>
+<a id="aa91494464def4e6e008c86646f2520af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91494464def4e6e008c86646f2520af">&#9670;&nbsp;</a></span>ldr_sensor_id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structport__ldr__hw__t.html">port_ldr_hw_t</a>* fsm_automatic_lamp_t::p_ldr_sensor</td>
+          <td class="memname">uint32_t fsm_automatic_lamp_t::ldr_sensor_id</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to the LDR sensor structure </p>
+<p>ID of the LDR sensor </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00058">58</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00029">29</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
-<a id="af3bb151c558d08c7c4fcbde8bffd36e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3bb151c558d08c7c4fcbde8bffd36e4">&#9670;&nbsp;</a></span>p_led_lamp</h2>
+<a id="a995ceb90894ab43d5e382992b07bfe84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a995ceb90894ab43d5e382992b07bfe84">&#9670;&nbsp;</a></span>led_lamp_id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a>* fsm_automatic_lamp_t::p_led_lamp</td>
+          <td class="memname">uint32_t fsm_automatic_lamp_t::led_lamp_id</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to the LED structure </p>
+<p>ID of the lamp LED </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00056">56</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00027">27</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
-<a id="a25e2ea87bec9ea4e2e0dbc9d33fcc605"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25e2ea87bec9ea4e2e0dbc9d33fcc605">&#9670;&nbsp;</a></span>p_led_status</h2>
+<a id="abff0bc8140092b52623311d7cecd300b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff0bc8140092b52623311d7cecd300b">&#9670;&nbsp;</a></span>led_status_id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structport__led__hw__t.html">port_led_hw_t</a>* fsm_automatic_lamp_t::p_led_status</td>
+          <td class="memname">uint32_t fsm_automatic_lamp_t::led_status_id</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to the status LED structure </p>
+<p>ID of the status LED </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00057">57</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00028">28</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
@@ -252,29 +248,12 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Threshold LDR to activate the automatic lamp Ohms </p>
 
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00062">62</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
-
-</div>
-</div>
-<a id="a6fef4189e6f672d06feee8fd30aeae84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fef4189e6f672d06feee8fd30aeae84">&#9670;&nbsp;</a></span>timer_period_sec</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t fsm_automatic_lamp_t::timer_period_sec</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Period of the timer to measure the LDR </p>
-
-<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8h_source.html#l00063">63</a> of file <a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fsm__automatic__lamp_8c_source.html#l00033">33</a> of file <a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>common/include/<a class="el" href="fsm__automatic__lamp_8h_source.html">fsm_automatic_lamp.h</a></li>
+<li>common/src/<a class="el" href="fsm__automatic__lamp_8c_source.html">fsm_automatic_lamp.c</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
