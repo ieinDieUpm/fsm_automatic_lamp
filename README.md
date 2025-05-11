@@ -20,7 +20,7 @@ El sistema toma una medida cada vez que se activa su temporizador. La medida se 
 | ------------- | ---------------------------------------- |
 | Define label  | STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER |
 | Timer         | TIM3                                     |
-| Interrupt     | TIM3_IRQHandler()                        |
+| Interrupt     | TIM3_IRQHandler                          |
 | Time interval | 1 second                                 |
 | Priority      | 2                                        |
 | Subpriority   | 0                                        |
@@ -37,17 +37,17 @@ El sensor LDR utilizado en el sistema es el NSL-19M51 (ver [hoja de datos del NS
 
 El sensor se muestrea en modo único con un período de muestreo dado por las interrupciones de un temporizador. Todas las configuraciones del ADC son por defecto. El ADC está configurado para interrumpir cuando la conversión se completa. El ADC está configurado como indica la siguiente tabla:
 
-| Parameter     | Value                          |
-| ------------- | ------------------------------ |
-| Define ID     | PORT_PORT_LDR_SENSOR_LAMP_ID_ID        |
-| Pin           | **Por determinar** (A1 Nucleo) |
-| ADC           | **Por determinar**             |
-| Channel       | **Por determinar**             |
-| Mode          | Analog                         |
-| Pull up/ down | No push no pull                |
-| ISR           | ADC_IRQHandler()               |
-| Priority      | 1                              |
-| Subpriority   | 0                              |
+| Parameter     | Value                           |
+| ------------- | ------------------------------- |
+| Define ID     | PORT_PORT_LDR_SENSOR_LAMP_ID_ID |
+| Pin           | **Por determinar** (A1 Nucleo)  |
+| ADC           | **Por determinar**              |
+| Channel       | **Por determinar**              |
+| Mode          | Analog                          |
+| Pull up/ down | No push no pull                 |
+| ISR           | ADC_IRQHandler()                |
+| Priority      | 1                               |
+| Subpriority   | 0                               |
 
 ## LEDs
 

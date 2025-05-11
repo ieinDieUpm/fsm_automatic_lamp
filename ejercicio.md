@@ -12,7 +12,7 @@
   * Solo se le dice que está conectado al pin analógico **`A1`** de la Nucleo (y de la *shield*). Puede saber qué GPIO y pin es mirando en (i) en el esquema proporcionado de la *shield* en el [enunciado](index.html), o (ii) en la ``Figure 25. NUCLEO-F446RE`` del [``User Manual``](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf), o tabla 19 del mismo documento.
   * **Una vez sepa la GPIO y el pin**, para saber **qué ADC y canal del ADC** utilizar para el sensor LDR, puede (i) buscar el pin en la ``Table 10. STM32F446xx pin and ball descriptions`` del [datasheet](https://www.st.com/resource/en/datasheet/stm32f446re.pdf),o en la misma [``Table 19. ARDUINO® connectors on NUCLEO-F446RE``](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf) del *User Manual*.
   * Para saber qué impedancia de pull-down `PORT_LDR_SENSOR_LAMP_PULLDOWN_OHMS` poner, mire el circuito del sensor LDR en la *shield* proporcionado en el [enunciado](index.html).
-  * Asigne un valor a la macro `STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER` para asignar el temporizador que está utilizando el sistema según se indica en las tablas del [enunciado](index.html).
+  * Asigne un valor a la macro `STM32F4_AUTOMATIC_LAMP_MEASUREMENT_TIMER` para asignar el temporizador que está utilizando el sistema según se indica en las tablas del [enunciado](index.html). Complete también los `#define` que falten.
 
 * En `stm32f4_ldr_sensor.c`:
   * Inicialice todos los campos de la estructura `stm32f4_ldr_hw_t` del sensor LDR `PORT_LDR_SENSOR_LAMP_ID`.
