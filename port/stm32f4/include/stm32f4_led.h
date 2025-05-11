@@ -1,0 +1,25 @@
+/**
+ * @file stm32f4_led.h
+ * @author Josué Pagán (j.pagan@upm.es)
+ * @brief Header file for the LED port layer connected to the STM32F4 Nucleo board.
+ * @version 0.1
+ * @date 2025-05-01
+ *
+ */
+
+#ifndef STM32F4_LED_H_
+#define STM32F4_LED_H_
+
+/* Includes ------------------------------------------------------------------*/
+/* HW dependent includes */
+#include "stm32f4xx.h"
+#include "stm32f4xx_hal.h"
+
+/* Defines and macros --------------------------------------------------------*/
+// HW Nucleo-STM32F446RE:
+#define STM32F4_LED_LAMP_GPIO_PORT GPIOB       /*!< GPIO port of the heating LED */
+#define STM32F4_LED_LAMP_GPIO_PIN GPIO_PIN_4   /*!< GPIO pin of the heating LED */
+#define STM32F4_LED_STATUS_GPIO_PORT GPIOA     /*!< GPIO port of the deactivation LED */
+#define STM32F4_LED_STATUS_GPIO_PIN GPIO_PIN_5 /*!< GPIO pin of the deactivation LED */
+
+#endif /* STM32F4_LED_H */
